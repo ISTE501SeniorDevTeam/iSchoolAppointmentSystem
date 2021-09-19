@@ -15,7 +15,7 @@ export default class SwipedScreen extends React.Component {
 
     startTimer = () => {
         setTimeout(() => {
-            this.props.navigation.navigate("reasons")
+            this.props.navigation.navigate("availability")
         }, 4000)
     }
 

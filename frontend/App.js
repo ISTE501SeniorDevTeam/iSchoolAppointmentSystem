@@ -1,24 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet} from 'react-native';
+import SafeAreaView, { SafeAreaProvider } from "react-native-safe-area-view";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Welcome from './Welcome';
 import SwipedScreen from './SwipedScreen';
-import Reasons from './reasons';
+import Reasons from './Reasons';
+import Availability from './Availability';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
+    <SafeAreaProvider>
+    <StatusBar style="auto" />
+    <SafeAreaView
+      forceInset={{ top: "always", bottom: "never" }}
+      style={{ flex: 1 }}
+    >
     <NavigationContainer>
-        <StatusBar style="auto" />
         <Stack.Navigator initialRouteName="welcome" screenOptions={{headerShown: false}}>
           <Stack.Screen name="welcome" component={Welcome} options={{animation: "none"}}></Stack.Screen>
           <Stack.Screen name="swiped_screen" component={SwipedScreen} options={{animation: "none"}}></Stack.Screen>
+          <Stack.Screen name="availability" component={Availability} options={{animation: "none"}}></Stack.Screen>
           <Stack.Screen name="reasons" component={Reasons} options={{animation: "none"}}></Stack.Screen>
         </Stack.Navigator> 
     </NavigationContainer>
+    </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 

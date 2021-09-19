@@ -12,6 +12,7 @@ export default class Reasons extends React.Component {
     render() {
         return(
             <View>
+                
             </View>
         )
     }
