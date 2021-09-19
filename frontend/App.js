@@ -4,10 +4,10 @@ import { StyleSheet} from 'react-native';
 import SafeAreaView, { SafeAreaProvider } from "react-native-safe-area-view";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Welcome from './Welcome';
-import SwipedScreen from './SwipedScreen';
-import Reasons from './Reasons';
-import Availability from './Availability';
+import Welcome from './screens/Welcome';
+import SwipedScreen from './screens/SwipedScreen';
+import Reasons from './screens/Reasons';
+import Availability from './screens/Availability';
 
 const Stack = createNativeStackNavigator();
 
