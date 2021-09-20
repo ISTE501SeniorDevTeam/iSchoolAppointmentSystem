@@ -20,7 +20,7 @@ export default function App() {
       style={{ flex: 1 }}
     >
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="welcome" screenOptions={{headerShown: false}}>
+        <Stack.Navigator initialRouteName="reasons" screenOptions={{headerShown: false}}>
           <Stack.Screen name="welcome" component={Welcome} options={{animation: "none"}}></Stack.Screen>
           <Stack.Screen name="swiped_screen" component={SwipedScreen} options={{animation: "none"}}></Stack.Screen>
           <Stack.Screen name="availability" component={Availability} options={{animation: "none"}}></Stack.Screen>
@@ -31,12 +31,3 @@ export default function App() {
     </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

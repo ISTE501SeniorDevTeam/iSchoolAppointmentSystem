@@ -10,7 +10,9 @@ export default class Availability extends React.Component {
     }
 
     onSelect = () => {
-        this.props.navigation.navigate("reasons")
+        this.props.navigation.navigate("reasons", {
+            selectedAdvisor: "Andy Advisor"
+        })
     }
 
     render() {
