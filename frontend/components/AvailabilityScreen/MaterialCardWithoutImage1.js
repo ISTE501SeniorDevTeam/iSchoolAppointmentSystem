@@ -4,7 +4,7 @@ import { StyleSheet, View, Text } from "react-native";
 function MaterialCardWithoutImage1(props) {
   return (
     <View style={[styles.container, props.style]}>
-      <Text style={styles.loremIpsum}>Amy Advisor</Text>
+      <Text style={styles.advisorName}>{props.advisorName}</Text>
     </View>
   );
 }
@@ -19,20 +19,19 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: -2,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.1,
     shadowRadius: 1.5,
     elevation: 3,
     overflow: "hidden",
-    justifyContent: "center"
+    justifyContent: "center",
   },
-  loremIpsum: {
-    fontFamily: "Helvetica",
+  advisorName: {
     color: "rgba(255,255,255,1)",
     fontSize: 24,
-    alignSelf: "center"
-  }
+    alignSelf: "center",
+  },
 });
 
 export default MaterialCardWithoutImage1;

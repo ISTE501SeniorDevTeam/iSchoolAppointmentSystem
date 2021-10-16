@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Image } from "react-native";
+import { images } from "../../assets/Utility";
 
 function MaterialCardWithTextOverImage1(props) {
   return (
     <View style={[styles.container, props.style]}>
       <Image
-        source={require("../../assets/AmyAdvisor.png")}
+        source={images.andy_advisor_image_url}
         style={styles.cardItemImagePlace}
       ></Image>
       <View style={styles.cardBody}></View>
@@ -23,12 +24,12 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: -2,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.1,
     shadowRadius: 1.5,
     elevation: 3,
-    overflow: "hidden"
+    overflow: "hidden",
   },
   cardItemImagePlace: {
     backgroundColor: "#ccc",
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
     bottom: 2,
     backgroundColor: "rgba(0,0,0,0.2)",
     left: 0,
-    right: 8
+    right: 8,
   },
 });
 

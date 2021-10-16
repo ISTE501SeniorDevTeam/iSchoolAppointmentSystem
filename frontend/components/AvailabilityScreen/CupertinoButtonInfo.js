@@ -3,7 +3,10 @@ import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
 function CupertinoButtonInfo(props) {
   return (
-    <TouchableOpacity style={[styles.container, props.style]}>
+    <TouchableOpacity
+      style={[styles.container, props.style]}
+      onPress={props.onSelectAdvisor}
+    >
       <Text style={styles.select}>Select</Text>
     </TouchableOpacity>
   );
@@ -17,12 +20,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderRadius: 5,
     paddingLeft: 16,
-    paddingRight: 16
+    paddingRight: 16,
   },
   select: {
     color: "#fff",
-    fontSize: 17
-  }
+    fontSize: 17,
+  },
 });
 
 export default CupertinoButtonInfo;
