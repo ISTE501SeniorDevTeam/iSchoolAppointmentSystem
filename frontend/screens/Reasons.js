@@ -8,7 +8,7 @@ import {
   Image,
   TextInput,
 } from "react-native";
-import { images, util } from "../assets/Utility";
+import { images } from "../assets/Utility";
 // import axios from "axios";
 import { colors } from "../styles/Main";
 
@@ -128,12 +128,23 @@ export default class Reasons extends React.Component {
   };
 
   makeAppointment = () => {
+    console.log({
+      reason:
+        this.state.selectedReason == this.OTHER_STRING
+          ? this.state.otherReason
+          : this.state.selectedReason,
+      student: this.props.route.params.studentDisplayName,
+      modality: "in-person",
+      advisor: this.props.route.params.selectedAdvisor,
+    });
+    this.props.navigation.navigate("thank_you");
     // axios
     //   .post(
     //     util.api_url + "createAppointmentApi()",
     //     {
     //       reason: this.state.selectedReason == this.OTHER_STRING ? this.state.otherReason : this.state.selectedReason,
     //       student: this.props.route.params.studentDisplayName,
+    //       modality: "in-person",
     //       advisor: this.props.route.params.selectedAdvisor,
     //     },
     //     {
@@ -191,7 +202,7 @@ export default class Reasons extends React.Component {
               Estimated Wait:{" "}
               <Text style={{ fontWeight: "bold" }}>
                 {this.props.route.params
-                  ? this.props.route.params.advisorWaitTime
+                  ? this.props.route.params.advisorWaitTime + " Minutes"
                   : 4 + " Minutes"}
               </Text>
             </Text>

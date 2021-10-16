@@ -8,8 +8,14 @@ function AvailableAdvisorWithSelect(props) {
     <View style={[styles.container, props.style]}>
       <View style={styles.rect}>
         <View style={styles.advisorProfileRow}>
-          <AdvisorProfile style={styles.advisorProfile}></AdvisorProfile>
-          <SelectButton style={styles.selectButton}></SelectButton>
+          <AdvisorProfile
+            advisorName={props.advisorName}
+            style={styles.advisorProfile}
+          ></AdvisorProfile>
+          <SelectButton
+            style={styles.selectButton}
+            onSelectAdvisor={props.onSelectAdvisor}
+          ></SelectButton>
         </View>
       </View>
     </View>
@@ -22,23 +28,23 @@ const styles = StyleSheet.create({
     width: 940,
     height: 150,
     backgroundColor: "#FFFFFF",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   advisorProfile: {
     height: 150,
-    width: 389
+    width: 389,
   },
   selectButton: {
     height: 55,
     width: 119,
-    marginLeft: 432,
-    marginTop: 48
+    marginTop: 48,
+    marginLeft: 200,
   },
   advisorProfileRow: {
     height: 150,
     flexDirection: "row",
-    flex: 1
-  }
+    flex: 1,
+  },
 });
 
 export default AvailableAdvisorWithSelect;

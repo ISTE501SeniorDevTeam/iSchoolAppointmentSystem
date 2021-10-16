@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet } from "react-native";
 import SafeAreaView, { SafeAreaProvider } from "react-native-safe-area-view";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -21,7 +20,7 @@ export default function App() {
       >
         <NavigationContainer>
           <Stack.Navigator
-            initialRouteName="reasons"
+            initialRouteName="welcome"
             screenOptions={{ headerShown: false }}
           >
             <Stack.Screen
