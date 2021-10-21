@@ -105,7 +105,7 @@ export default class Availability extends React.Component {
           <FlatList
             data={this.state.advisorsData}
             contentContainerStyle={styles.availableAdvisorContainer}
-            renderItem={({ item }) => [
+            renderItem={({ item }) => (
               <View style={styles.availableAdvisor} key={item.advisorName}>
                 <CompleteAvailableAdvisorWithSelect
                   advisorName={item.advisorName}
@@ -121,8 +121,8 @@ export default class Availability extends React.Component {
                     )
                   }
                 />
-              </View>,
-            ]}
+              </View>
+            )}
             numColumns={1}
             keyExtractor={(item) => item.advisorName.toString()}
           />
