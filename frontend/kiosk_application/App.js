@@ -7,6 +7,8 @@ import Welcome from "./screens/Welcome";
 import SwipedScreen from "./screens/SwipedScreen";
 import Reasons from "./screens/Reasons";
 import Availability from "./screens/Availability";
+import DegreeLevel from "./screens/DegreeLevel";
+import MajorSelection from "./screens/MajorSelection";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,7 +34,17 @@ export default function App() {
               name="swiped_screen"
               component={SwipedScreen}
               options={{ animation: "none" }}
-            ></Stack.Screen>
+            />
+            <Stack.Screen
+              name="degree_level"
+              component={DegreeLevel}
+              options={{ animation: "none" }}
+            />
+            <Stack.Screen
+              name="major_selection"
+              component={MajorSelection}
+              options={{ animation: "none" }}
+            />
             <Stack.Screen
               name="availability"
               component={Availability}
