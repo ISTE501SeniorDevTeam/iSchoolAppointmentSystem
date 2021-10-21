@@ -24,7 +24,7 @@ export default class SwipedScreen extends React.Component {
 
   startTimer = () => {
     setTimeout(() => {
-      this.props.navigation.navigate("availability", {
+      this.props.navigation.navigate("degree_level", {
         studentDisplayName: this.state.studentDisplayName,
       });
     }, 4000);

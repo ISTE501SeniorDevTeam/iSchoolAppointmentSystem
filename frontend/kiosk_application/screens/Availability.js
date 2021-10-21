@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  View,
-  StyleSheet,
-  ImageBackground,
-  Text,
-  Dimensions,
-  Image,
-  FlatList,
-} from "react-native";
+import { View, StyleSheet, Text, Image, FlatList } from "react-native";
 import { util } from "../assets/Utility";
 import CompleteAvailableAdvisorWithSelect from "../components/AvailabilityScreen/CompleteAvailableAdvisorWithSelect";
 
@@ -72,7 +64,7 @@ export default class Availability extends React.Component {
 
   // getData = () => {
   // axios
-  //   .get(util.api_url + "getAvailableAdvisorsWithStudentsInTheQueueApi()", {
+  //   .get(util.api_url + "getAvailableAdvisorsWithStudentsInTheQueueApi/degreeLevel[grad or undergrad]()", {
   //     headers: { },
   //   })
   //   .then((res) => {

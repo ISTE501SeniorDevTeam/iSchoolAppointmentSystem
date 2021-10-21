@@ -5,10 +5,12 @@ import {
   StyleSheet,
   View,
   Text,
+  TextInput,
 } from "react-native";
-import { util } from "../assets/Utility";
 
 export default class Welcome extends React.Component {
+  textInput = "";
+
   constructor(props) {
     super(props);
     this.state = {
@@ -17,26 +19,10 @@ export default class Welcome extends React.Component {
   }
 
   componentDidMount() {
-    this.listenForSwipe();
-  }
-
-  listenForSwipe = () => {
-    document.addEventListener("keydown", (event) => {
-      let keyCode = event.keyCode;
-      if (keyCode >= 48 && keyCode <= 57) {
-        this.setState(
-          {
-            UID: this.state.UID + (keyCode - 48),
-          },
-          () => {
-            if (this.state.UID.length == util.numberOfDigitisInUID) {
-              this.onSwiped();
-            }
-          }
-        );
-      }
+    setTimeout(() => {
+      this.textInput.focus();
     });
-  };
+  }
 
   onSwiped = () => {
     // axios
@@ -55,6 +41,28 @@ export default class Welcome extends React.Component {
     });
   };
 
+  onTextInputFocus = () => {
+    // Code to eliminate the outline for a textinput
+    this.textInput.setNativeProps({
+      style: {
+        outline: "none",
+      },
+    });
+  };
+
+  onChangeInvisibleTextBox = (text) => {
+    this.setState(
+      {
+        UID: text.trim(),
+      },
+      () => {
+        if (this.state.UID.length == 9 && this.state.UID.match("^[0-9]*$")) {
+          this.onSwiped();
+        }
+      }
+    );
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -62,6 +70,15 @@ export default class Welcome extends React.Component {
           style={styles.image}
           source={require("../assets/Group85.png")}
         >
+          <TextInput
+            ref={(ref) => (this.textInput = ref)}
+            placeholder=""
+            style={{ height: 1, width: 1 }}
+            value={this.state.UID}
+            onChangeText={this.onChangeInvisibleTextBox}
+            onFocus={this.onTextInputFocus}
+            showSoftInputOnFocus={false}
+          />
           <Text style={styles.headerText}>Welcome</Text>
           <Text style={styles.bodyText}>Please Swipe Your ID</Text>
           <Text style={styles.uidText}>{this.state.UID}</Text>
