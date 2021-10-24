@@ -9,6 +9,7 @@ import Reasons from "./screens/Reasons";
 import Availability from "./screens/Availability";
 import DegreeLevel from "./screens/DegreeLevel";
 import MajorSelection from "./screens/MajorSelection";
+import { ThankYou } from "./screens/ThankYou";
 
 const Stack = createNativeStackNavigator();
 
@@ -57,7 +58,7 @@ export default function App() {
             ></Stack.Screen>
             <Stack.Screen
               name="thank_you"
-              component={Reasons}
+              component={ThankYou}
               options={{ animation: "none" }}
             ></Stack.Screen>
           </Stack.Navigator>
