@@ -1,0 +1,30 @@
+.StudentNameContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  top: 65px;
+  width: 320px;
+  height: 55px;
+  align-items: center;
+}
+
+.StudentName {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  color: #ffffff;
+  margin-left: 15px;
+}
+
+.StudentNameContainer:hover {
+  cursor: pointer;
+  /* background-color: #ffffff; */
+  background-color: #293846;
+}
+
+/* .StudentName:hover {
+  cursor: pointer;
+  background-color: #f76902;
+} */
