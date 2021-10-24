@@ -1,5 +1,4 @@
 import React from "react";
-// import { Student } from "../Student/student.component";
 import "./studentinfopage.styles.css"
 
 export const StudentInfoPage = (props) => (
@@ -8,11 +7,12 @@ export const StudentInfoPage = (props) => (
         <div className= "StudentInfoPage"
         ></div>
         <div className= "StudentInfoNameContainer">
-          <span className= "StudentNameText">Sam Student</span>
+          <span className= "StudentNameText"> {props.student[1].studentName}
+          </span>
         </div>
-        <span className= "StudentMajorText">Major</span>
-        <span className= "StudentEmailText">email</span>
-        <span className= "StudentUIDText">UID</span>
+        <span className= "StudentMajorText">{props.student[1].studentMajor}</span>
+        <span className= "StudentEmailText">{props.student[1].studentEmail}</span>
+        <span className= "StudentUIDText">{props.student[1].studentUID}</span>
         <div className= "UsualAdvisorContainer">
           <span className= "UsualAdvisorText">Usual Advisor</span>
         </div>
@@ -25,12 +25,9 @@ export const StudentInfoPage = (props) => (
           <span className= "StudentReasonForVisitText">Reason for Visit</span>
         </div>
         <span className= "VariableReasonForVisit">Request for Resource Info</span>
-        <div className= "StartMeetingContainer">
+        <button className= "StartMeetingContainer">
           <span className= "StartMeetingText" >Start Meeting</span>
-        </div>
-        {/* <span className= "VariableUsualAdvisor">Adam Advisor</span> */}
-        {/* <span className= "VariableModality">In Person</span> */}
-        {/* <span className= "VariableReasonForVisit">Request for Resource Info</span> */}
+        </button>
       </div>
     </div>
 )

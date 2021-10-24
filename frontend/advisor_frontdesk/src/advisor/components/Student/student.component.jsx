@@ -3,8 +3,8 @@ import React from "react";
 import "./student.styles.css"
 
 export const Student = (props) => (
-    <div className="StudentNameContainer">
+    <button className="StudentNameButtonContainer">
             <span className="StudentName">{props.student.studentName}</span>
-            {console.log(props.student.studentName)}
-    </div>
+            {/* {console.log(props.student.studentName)} */}
+    </button>
 )

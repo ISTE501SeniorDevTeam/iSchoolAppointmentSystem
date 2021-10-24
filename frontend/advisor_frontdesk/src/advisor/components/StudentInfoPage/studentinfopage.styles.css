@@ -195,8 +195,13 @@
   height: 85px;
   position: absolute;
   background-color: rgba(247, 105, 2, 1);
-  flex-direction: column;
-  display: flex;
+  /* flex-direction: column;
+  display: flex; */
+}
+
+.StartMeetingContainer:hover {
+  cursor: pointer;
+  background-color: rgba(33, 37, 25, 1);
 }
 
 .StartMeetingText {

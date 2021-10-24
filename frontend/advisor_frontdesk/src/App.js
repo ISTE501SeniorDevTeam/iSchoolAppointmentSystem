@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import  BlackSidebar from "./advisor/components/BlackSidebar/blacksidebar.component";
 import {OrangeSidebar} from "./advisor/components/OrangeSidebar/orangesidebar.component";
+import StudentOverview from "./advisor/components/StudentOverview/studentoverview.component";
 import './App.css';
-import {StudentInfoPage}  from "./advisor/components/StudentInfoPage/studentinfopage.component";
+
 
 // let advisors = [
 //   "Amy Advisor",
@@ -11,11 +11,12 @@ import {StudentInfoPage}  from "./advisor/components/StudentInfoPage/studentinfo
 // ];
 
 class App extends Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
 
     this.state = {
-      advisor: "Amy Advisor"
+      advisor: "Amy Advisor",
+      students:[]
     };
   }
 
@@ -24,10 +25,7 @@ class App extends Component{
       <div className="flex-container">
        <OrangeSidebar className="item1" advisor={this.state.advisor}>
        </OrangeSidebar>
-       <BlackSidebar className="item2">
-       </BlackSidebar>
-       <StudentInfoPage className="item3">
-       </StudentInfoPage>
+       <StudentOverview className="item2"></StudentOverview>
       </div>
       );
   }

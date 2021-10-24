@@ -1,4 +1,4 @@
-.StudentNameContainer {
+.StudentNameButtonContainer {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -6,6 +6,9 @@
   width: 320px;
   height: 55px;
   align-items: center;
+  background-color: rgba(33, 37, 25, 1);
+  border-width: none;
+  border-style: none;
 }
 
 .StudentName {
@@ -18,7 +21,7 @@
   margin-left: 15px;
 }
 
-.StudentNameContainer:hover {
+.StudentNameButtonContainer:hover {
   cursor: pointer;
   /* background-color: #ffffff; */
   background-color: #293846;
