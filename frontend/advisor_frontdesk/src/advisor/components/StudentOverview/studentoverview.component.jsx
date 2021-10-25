@@ -69,9 +69,9 @@ class StudentOverview extends Component{
     };
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.setState({students:studentInfo})
-}
+  }
 
   render(){
     return (
