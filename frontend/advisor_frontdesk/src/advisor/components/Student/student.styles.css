@@ -27,7 +27,7 @@
   background-color: #293846;
 }
 
-/* .StudentName:hover {
+.active {
   cursor: pointer;
-  background-color: #f76902;
-} */
+  background-color: #ffffff;
+}
