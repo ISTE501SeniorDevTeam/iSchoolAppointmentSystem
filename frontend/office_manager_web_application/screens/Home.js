@@ -5,10 +5,9 @@ import BlackSideBar from "../components/BlackSideBar";
 import OrangeSideBar from "../components/OrangeSideBar";
 import { PreviouslyUploaded } from "../components/PreviouslyUploaded";
 import { StudentQueue } from "../components/StudentQueue";
+
 import  WalkIn  from "../components/WalkInCreation";
 import { UploadMedia } from "../components/UploadMedia";
-
-
 
 let queueData = [
   {
