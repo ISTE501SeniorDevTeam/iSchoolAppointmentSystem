@@ -1,11 +1,14 @@
-import axios from "axios";
+// import axios from "axios";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { util } from "../assets/Utility";
 import BlackSideBar from "../components/BlackSideBar";
 import OrangeSideBar from "../components/OrangeSideBar";
+import { PreviouslyUploaded } from "../components/PreviouslyUploaded";
 import { StudentQueue } from "../components/StudentQueue";
-import { WalkInCreation } from "../components/WalkInCreation";
+import  WalkIn  from "../components/WalkInCreation";
+import { UploadMedia } from "../components/UploadMedia";
+
+
 
 let queueData = [
   {
@@ -55,12 +58,16 @@ let queueData = [
  * Author: Raghul Krishnan
  */
 export default class Home extends React.Component {
+  blackSideBar = null;
   constructor(props) {
     super(props);
     this.state = {
       displayStudentQueue: true,
       displayWalkIn: false,
       queueData,
+      showStudentsOptions: true,
+      displayPreviosulyUploaded: false,
+      displayUpload: false,
     };
 
     this.getData();
@@ -93,21 +100,77 @@ export default class Home extends React.Component {
     });
   };
 
+  studentsButtonInSideBarClicked = () => {
+    this.blackSideBar.state.createWalkInClicked
+      ? this.setState({
+          showStudentsOptions: true,
+          displayPreviosulyUploaded: false,
+          displayStudentQueue: false,
+          displayWalkIn: true,
+          displayUpload: false,
+        })
+      : this.setState({
+          showStudentsOptions: true,
+          displayPreviosulyUploaded: false,
+          displayStudentQueue: true,
+          displayWalkIn: false,
+          displayUpload: false,
+        });
+  };
+
+  infoUploadInSideBarClicked = () => {
+    this.blackSideBar.state.uploadClicked
+      ? this.setState({
+          showStudentsOptions: false,
+          displayPreviosulyUploaded: false,
+          displayUpload: true,
+          displayStudentQueue: false,
+          displayWalkIn: false,
+        })
+      : this.setState({
+          showStudentsOptions: false,
+          displayPreviosulyUploaded: true,
+          displayUpload: false,
+          displayStudentQueue: false,
+          displayWalkIn: false,
+        });
+  };
+
+  uploadClicked = () => {
+    this.setState({ displayUpload: true, displayPreviosulyUploaded: false });
+  };
+
+  previouslyUploadedClicked = () => {
+    this.setState({ displayUpload: false, displayPreviosulyUploaded: true });
+  };
+
   render() {
     return (
-      <View style={styles.topView} onMo>
+      <View style={styles.topView}>
         {/* need to get props from login page */}
         <OrangeSideBar
           userName={this.props.userName || "Olivia Officeworker"}
+          userRole={"Office Manager"}
+          studentsClicked={this.studentsButtonInSideBarClicked}
+          infoUploadClicked={this.infoUploadInSideBarClicked}
         />
         <BlackSideBar
+          ref={(ref) => (this.blackSideBar = ref)}
           studentQueueClicked={this.studentQueueClicked}
           createWalkInClicked={this.createWalkInClicked}
+          showStudentsOptions={this.state.showStudentsOptions}
+          uploadClicked={this.uploadClicked}
+          previouslyUploadedClicked={this.previouslyUploadedClicked}
         />
+
         {this.state.displayStudentQueue && (
           <StudentQueue queueData={this.state.queueData} />
         )}
-        {this.state.displayWalkIn && <WalkInCreation />}
+
+        {this.state.displayWalkIn && <WalkIn />}
+        {this.state.displayPreviosulyUploaded && <PreviouslyUploaded />}
+        {this.state.displayUpload && <UploadMedia />}
+
       </View>
     );
   }

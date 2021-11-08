@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Dimensions,
   Image,
@@ -16,14 +16,49 @@ import { colors } from "../styles/Main";
  * Author: Raghul Krishnan
  */
 export const OrangeSideBar = (props) => {
+  let [infoPressed, setInfoPressed] = useState(false);
+  let [studentsPressed, setStudentsPressed] = useState(true);
   return (
     <View style={styles.topView}>
       <View>
         <Text style={styles.welcomeText}>Welcome</Text>
         <Text style={styles.userName}>{props.userName}</Text>
-        <Pressable style={styles.sideBarButton}>
+        <Pressable
+          style={
+            studentsPressed
+              ? [
+                  styles.sideBarButton,
+                  { backgroundColor: colors.themeBlackColor },
+                ]
+              : styles.sideBarButton
+          }
+          onPress={() => {
+            setStudentsPressed(true);
+            setInfoPressed(false);
+            props.studentsClicked();
+          }}
+        >
           <Text style={styles.sideBarText}>Students</Text>
         </Pressable>
+        {props.userRole == "Office Manager" && (
+          <Pressable
+            style={
+              infoPressed
+                ? [
+                    styles.sideBarButton,
+                    { marginTop: 15, backgroundColor: colors.themeBlackColor },
+                  ]
+                : [styles.sideBarButton, { marginTop: 15 }]
+            }
+            onPress={() => {
+              setInfoPressed(true);
+              setStudentsPressed(false);
+              props.infoUploadClicked();
+            }}
+          >
+            <Text style={styles.sideBarText}>Info Upload</Text>
+          </Pressable>
+        )}
       </View>
       <View>
         <Pressable onPress={technicalSupportClicked}>
@@ -77,7 +112,6 @@ const styles = StyleSheet.create({
   sideBarButton: {
     marginTop: 40,
     paddingVertical: 20,
-    backgroundColor: colors.themeBlackColor,
     paddingLeft: 4,
     color: "white",
   },

@@ -4,11 +4,12 @@ import SafeAreaView, { SafeAreaProvider } from "react-native-safe-area-view";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home";
+import SelectAdvisor from "./screens/SelectAdvisor";
 
 const Stack = createNativeStackNavigator();
 
 /**
- * This is main aentry point for the office manager app
+ * This is main entry point for the office manager app
  * Author: Raghul Krishnan
  */
 export default function App() {
@@ -27,6 +28,11 @@ export default function App() {
             <Stack.Screen
               name="Home"
               component={Home}
+              options={{ animation: "none" }}
+            />
+            <Stack.Screen
+              name="SelectAdvisor"
+              component={SelectAdvisor}
               options={{ animation: "none" }}
             />
           </Stack.Navigator>

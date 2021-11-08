@@ -14,6 +14,9 @@ export default class BlackSideBar extends React.Component {
     this.state = {
       studentQueueClicked: true,
       createWalkInClicked: false,
+      previouslyUploadedClicked: true,
+      uploadClicked: false,
+      showStudentsOptions: this.props.showStudentsOptions,
     };
   }
 
@@ -37,45 +40,108 @@ export default class BlackSideBar extends React.Component {
         });
   };
 
+  previouslyUploadedClicked = () => {
+    this.props.previouslyUploadedClicked();
+    this.state.previouslyUploadedClicked
+      ? ""
+      : this.setState({
+          previouslyUploadedClicked: true,
+          uploadClicked: false,
+        });
+  };
+
+  uploadClicked = () => {
+    this.props.uploadClicked();
+    this.state.uploadClicked
+      ? ""
+      : this.setState({
+          previouslyUploadedClicked: false,
+          uploadClicked: true,
+        });
+  };
+
   render() {
     return (
       <View style={styles.topView}>
-        <Pressable
-          onPress={this.studentQueueClicked}
-          style={
-            this.state.studentQueueClicked
-              ? [styles.sideBarButton, styles.clickedButton]
-              : styles.sideBarButton
-          }
-        >
-          <Text
-            style={
-              this.state.studentQueueClicked
-                ? [styles.sideBarText, styles.clickedText]
-                : styles.sideBarText
-            }
-          >
-            Student Queue
-          </Text>
-        </Pressable>
-        <Pressable
-          style={
-            this.state.createWalkInClicked
-              ? [styles.sideBarButton, styles.clickedButton]
-              : styles.sideBarButton
-          }
-          onPress={this.createWalkInClicked}
-        >
-          <Text
-            style={
-              this.state.createWalkInClicked
-                ? [styles.sideBarText, styles.clickedText]
-                : styles.sideBarText
-            }
-          >
-            Create Walk-in
-          </Text>
-        </Pressable>
+        {this.props.showStudentsOptions ? (
+          <View>
+            <Pressable
+              onPress={this.studentQueueClicked}
+              style={
+                this.state.studentQueueClicked
+                  ? [styles.sideBarButton, styles.clickedButton]
+                  : styles.sideBarButton
+              }
+            >
+              <Text
+                style={
+                  this.state.studentQueueClicked
+                    ? [styles.sideBarText, styles.clickedText]
+                    : styles.sideBarText
+                }
+              >
+                Student Queue
+              </Text>
+            </Pressable>
+            <Pressable
+              style={
+                this.state.createWalkInClicked
+                  ? [styles.sideBarButton, styles.clickedButton]
+                  : styles.sideBarButton
+              }
+              onPress={this.createWalkInClicked}
+            >
+              <Text
+                style={
+                  this.state.createWalkInClicked
+                    ? [styles.sideBarText, styles.clickedText]
+                    : styles.sideBarText
+                }
+              >
+                Create Walk-in
+              </Text>
+            </Pressable>
+          </View>
+        ) : (
+          <View>
+            <Pressable
+              onPress={this.previouslyUploadedClicked}
+              style={
+                this.state.previouslyUploadedClicked
+                  ? [styles.sideBarButton, styles.clickedButton]
+                  : styles.sideBarButton
+              }
+            >
+              <Text
+                style={
+                  this.state.previouslyUploadedClicked
+                    ? [styles.sideBarText, styles.clickedText]
+                    : styles.sideBarText
+                }
+              >
+                Previously Uploaded
+              </Text>
+            </Pressable>
+            <Pressable
+              style={
+                this.state.uploadClicked
+                  ? [styles.sideBarButton, styles.clickedButton]
+                  : styles.sideBarButton
+              }
+              onPress={this.uploadClicked}
+            >
+              <Text
+                style={
+                  this.state.uploadClicked
+                    ? [styles.sideBarText, styles.clickedText]
+                    : styles.sideBarText
+                }
+              >
+                Upload
+              </Text>
+            </Pressable>
+          </View>
+        )}
       </View>
     );
   }

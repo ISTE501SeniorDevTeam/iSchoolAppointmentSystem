@@ -30,6 +30,10 @@ let advisorsWithStudents = [
         studentDisplayName: "Ryan Borger",
         emailAddress: "rb1234@rit.edu",
       },
+      {
+        studentDisplayName: "Rick Hoffman",
+        emailAddress: "rb1234@rit.edu",
+      },
     ],
   },
   {
@@ -71,6 +75,7 @@ export default class AdvisorStudentQueue extends React.Component {
   }
 
   getData = () => {
+    // setTimeout(() =>{
     // axios
     //   .get(util.api_url + "getAvailableAdvisorsWithStudentsInTheQueueApi()", {
     //     headers: { },
@@ -90,6 +95,7 @@ export default class AdvisorStudentQueue extends React.Component {
     //       mediaContent: res.data,
     //     };
     //   });
+    // }, 5000)
   };
 
   render() {

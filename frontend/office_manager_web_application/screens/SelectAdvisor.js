@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Text, Image, FlatList } from "react-native";
 import { util } from "../assets/Utility";
-import CompleteAvailableAdvisorWithSelect from "../components/AvailabilityScreen/CompleteAvailableAdvisorWithSelect";
+// import CompleteAvailableAdvisorWithSelect from "../components/AvailabilityScreen/CompleteAvailableAdvisorWithSelect";
 
 let advisorsWithStudents = [
   {
@@ -10,6 +10,10 @@ let advisorsWithStudents = [
       {
         studentDisplayName: "Jim Parker",
         emailAddress: "jpa1234@rit.edu",
+      },
+      {
+        studentDisplayName: "John Simson",
+        emailAddress: "jss1234@rit.edu",
       },
     ],
   },
@@ -23,10 +27,6 @@ let advisorsWithStudents = [
       {
         studentDisplayName: "Ryan Borger",
         emailAddress: "rb1234@rit.edu",
-      },
-      {
-        studentDisplayName: "John Simson",
-        emailAddress: "jss1234@rit.edu",
       },
     ],
   },
@@ -45,7 +45,7 @@ let advisorsWithStudents = [
   },
 ];
 
-export default class Availability extends React.Component {
+export default class SelectAdvisor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -79,14 +79,6 @@ export default class Availability extends React.Component {
     return (
       <View style={styles.topView}>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-          <Image
-            style={styles.ritHeaderImage}
-            source={require("../assets/RIT.jpg")}
-          />
-          <Image
-            style={styles.ritTraingle}
-            source={require("../assets/reasons-background.png")}
-          />
         </View>
         <View style={styles.appointmentSection}>
           <Text style={styles.appointmentHeader}>Appointments</Text>
