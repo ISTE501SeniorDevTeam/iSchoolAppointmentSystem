@@ -34,7 +34,6 @@ export default class MajorSelection extends React.Component {
     super(props);
     let selectedDegreeLevel =
       this.props.route.params && this.props.route.params.degreeLevel;
-    console.log(selectedDegreeLevel);
 
     this.state = {
       majorsData:

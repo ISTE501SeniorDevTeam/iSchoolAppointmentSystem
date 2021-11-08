@@ -11,10 +11,6 @@ let advisorsWithStudents = [
         studentDisplayName: "Jim Parker",
         emailAddress: "jpa1234@rit.edu",
       },
-      {
-        studentDisplayName: "John Simson",
-        emailAddress: "jss1234@rit.edu",
-      },
     ],
   },
   {
@@ -27,6 +23,10 @@ let advisorsWithStudents = [
       {
         studentDisplayName: "Ryan Borger",
         emailAddress: "rb1234@rit.edu",
+      },
+      {
+        studentDisplayName: "John Simson",
+        emailAddress: "jss1234@rit.edu",
       },
     ],
   },

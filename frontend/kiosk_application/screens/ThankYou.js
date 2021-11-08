@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   View,
   StyleSheet,
@@ -8,7 +8,13 @@ import {
   Image,
 } from "react-native";
 
-export const ThankYou = () => {
+export const ThankYou = (props) => {
+  useEffect(() => {
+    setTimeout(() => {
+      props.navigation.navigate("welcome");
+    }, 6000);
+  });
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -17,7 +23,7 @@ export const ThankYou = () => {
       >
         <Text style={styles.headerText}>Thank You!</Text>
         <Text style={styles.bodyText}>
-          Please take a seat until an advisor comes to get you.
+          Please take a seat until an advisor comes to get you
         </Text>
         <Image
           style={styles.ritHeaderImage}
