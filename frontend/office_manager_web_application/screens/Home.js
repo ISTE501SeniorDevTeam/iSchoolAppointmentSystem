@@ -5,8 +5,9 @@ import BlackSideBar from "../components/BlackSideBar";
 import OrangeSideBar from "../components/OrangeSideBar";
 import { PreviouslyUploaded } from "../components/PreviouslyUploaded";
 import { StudentQueue } from "../components/StudentQueue";
+
+import  WalkIn  from "../components/WalkInCreation";
 import { UploadMedia } from "../components/UploadMedia";
-import { WalkInCreation } from "../components/WalkInCreation";
 
 let queueData = [
   {
@@ -164,9 +165,11 @@ export default class Home extends React.Component {
         {this.state.displayStudentQueue && (
           <StudentQueue queueData={this.state.queueData} />
         )}
-        {this.state.displayWalkIn && <WalkInCreation />}
+
+        {this.state.displayWalkIn && <WalkIn />}
         {this.state.displayPreviosulyUploaded && <PreviouslyUploaded />}
         {this.state.displayUpload && <UploadMedia />}
+
       </View>
     );
   }
