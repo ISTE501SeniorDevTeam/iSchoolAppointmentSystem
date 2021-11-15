@@ -22,6 +22,13 @@ export default class Welcome extends React.Component {
     setTimeout(() => {
       this.textInput.focus();
     });
+
+    /* Uncomment the next 4 lines of code to navigate to the next screen without a magstripe reader */
+    // setTimeout(() => {
+    //   setTimeout(() => {
+    //     this.textInput.focus();
+    //   });
+    // }, 4000);
   }
 
   onSwiped = () => {

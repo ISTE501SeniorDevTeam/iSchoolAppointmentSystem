@@ -13,6 +13,11 @@ import { ThankYou } from "./screens/ThankYou";
 
 const Stack = createNativeStackNavigator();
 
+/**
+ * This is the entry point to our app which is displayed upon application load
+ * It holds all the screens the applicaion can be navigated to
+ * Author: Raghul Krishnan
+ */
 export default function App() {
   return (
     <SafeAreaProvider>
