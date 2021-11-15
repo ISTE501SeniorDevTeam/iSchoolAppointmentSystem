@@ -6,8 +6,9 @@ import OrangeSideBar from "../components/OrangeSideBar";
 import { PreviouslyUploaded } from "../components/PreviouslyUploaded";
 import { StudentQueue } from "../components/StudentQueue";
 
-import  WalkIn  from "../components/WalkInCreation";
+import WalkIn from "../components/WalkInCreation";
 import { UploadMedia } from "../components/UploadMedia";
+import axios from "axios";
 
 let queueData = [
   {
@@ -143,6 +144,40 @@ export default class Home extends React.Component {
     this.setState({ displayUpload: false, displayPreviosulyUploaded: true });
   };
 
+  deleteStudentFromQueue = (studentName, advisorName) => {
+    let advisorIndex = this.state.queueData.findIndex((advisorQueue) => {
+      return advisorName == advisorQueue.advisorName;
+    });
+    let studentIndex = this.state.queueData[
+      advisorIndex
+    ].studentsInTheQueue.findIndex((student) => {
+      return student.studentDisplayName == studentName;
+    });
+    let queueCopy = this.state.queueData;
+    queueCopy.length;
+    queueCopy[advisorIndex].studentsInTheQueue.splice(studentIndex, 1);
+    this.setState({
+      queueData: queueCopy,
+    });
+    // axios
+    //   .post(
+    //     util.api_url + "deleteStudentFromAdvisorQueueApi()",
+    //     {
+    //       student: studentName,
+    //       advisor: advisorName
+    //     },
+    //     {
+    //       headers: {},
+    //     }
+    //   )
+    //   .then((res) => {
+    //     this.state = {
+    //       queueData: res.data,
+    //     };
+    //   })
+    //   .catch((res) => {});
+  };
+
   render() {
     return (
       <View style={styles.topView}>
@@ -163,13 +198,15 @@ export default class Home extends React.Component {
         />
 
         {this.state.displayStudentQueue && (
-          <StudentQueue queueData={this.state.queueData} />
+          <StudentQueue
+            queueData={this.state.queueData}
+            deleteStudentFromQueue={this.deleteStudentFromQueue}
+          />
         )}
 
         {this.state.displayWalkIn && <WalkIn />}
         {this.state.displayPreviosulyUploaded && <PreviouslyUploaded />}
         {this.state.displayUpload && <UploadMedia />}
-
       </View>
     );
   }

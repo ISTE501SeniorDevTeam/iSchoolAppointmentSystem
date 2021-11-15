@@ -10,10 +10,8 @@ export default class DegreeLevel extends React.Component {
     this.state = {
       degreeLevels,
       selectedDegreeLevel: "",
-      studentDisplayName:
-        (this.props.route.params &&
-          this.props.route.params.studentDisplayName) ||
-        "John Doe",
+      studentDisplayName: this.props.route.params.studentDisplayName,
+      studentAdvisor: this.props.route.params.studentAdvisor1,
     };
     this.prepareData();
   }
@@ -60,7 +58,8 @@ export default class DegreeLevel extends React.Component {
       this.state.selectedDegreeLevel.trim() != ""
     ) {
       this.props.navigation.navigate("major_selection", {
-        studentDisplayName: this.state.studentDisplayName,
+        studentDisplayName: this.props.route.params.studentDisplayName,
+        studentAdvisor: this.props.route.params.studentAdvisor,
         degreeLevel: this.state.selectedDegreeLevel,
       });
     }

@@ -1,15 +1,14 @@
-import { Link } from "@react-navigation/native";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
-  Image,
+  Dimensions,
   Pressable,
   ScrollView,
   StyleSheet,
   Text,
   View,
 } from "react-native";
+import Modal from "react-native-modal";
 import { useHover } from "react-native-web-hooks";
-import { images } from "../assets/Utility";
 import { colors } from "../styles/Main";
 
 let currentlyDisplayingStatic = [
@@ -40,6 +39,12 @@ export const PreviouslyUploaded = (props) => {
   const [previouslyUploaded, setPreviouslyUploaded] = useState(
     previouslyUploadedStatic
   );
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [currentlyDisplayingSelected, setCurrentlyDisplayingSelected] =
+    useState(false);
+
   useEffect(() => {
     // axios
     //   .get(util.api_url + "getPreviouslyUploadedItems()", {
@@ -62,71 +67,124 @@ export const PreviouslyUploaded = (props) => {
     //   })
     //   .catch((res) => {});
   });
+
+  let removeFile = () => {
+    if (currentlyDisplayingSelected) {
+      let currentlyDisplayingCopy = currentlyDisplaying;
+      let index = currentlyDisplayingCopy.findIndex((file) => {
+        return file.fileName == selectedFile;
+      });
+      currentlyDisplayingCopy.splice(index, 1);
+      setCurrentyDisplaying(currentlyDisplayingCopy);
+    } else {
+      let previouslyUploadedCopy = previouslyUploaded;
+      let index = previouslyUploadedCopy.findIndex((file) => {
+        return file.fileName == selectedFile;
+      });
+      previouslyUploadedCopy.splice(index, 1);
+      setPreviouslyUploaded(previouslyUploadedCopy);
+    }
+
+    // axios
+    //   .post(
+    //     util.api_url + "deleteFileFromList()",
+    //     {
+    //       file: selectedFile
+    //     },
+    //     {
+    //       headers: {},
+    //     }
+    //   )
+    //   .then((res) => {
+    //     this.state = {
+    //       queueData: res.data,
+    //     };
+    //   })
+    //   .catch((res) => {});
+  };
+
   return (
     <ScrollView style={styles.topView} showsVerticalScrollIndicator={false}>
       <View style={styles.headerTextContainer}>
         <Text style={styles.headerText}>Currently Displaying</Text>
       </View>
       <View style={styles.filesContainer}>
+        {currentlyDisplaying.length == 0 && (
+          <View style={styles.fileNameRow}>
+            <Text
+              style={[
+                styles.fileName,
+                { color: colors.ritThemeColor, fontWeight: "500" },
+              ]}
+            >
+              Currently no files
+            </Text>
+          </View>
+        )}
         {currentlyDisplaying.map((file) => {
-          const containerRef = useRef(null);
-          const containerIsHovered = useHover(containerRef);
-          const stopDisplayingRef = useRef(null);
-          const stopDisplayingIsHovered = useHover(stopDisplayingRef);
-          const viewButtonRef = useRef(null);
-          const viewButtonIsHovered = useHover(viewButtonRef);
-          const deleteButtonRef = useRef(null);
-          const deleteButtonIsHovered = useHover(deleteButtonRef);
+          // const containerRef = useRef(null);
+          // const containerIsHovered = useHover(containerRef);
+          // const stopDisplayingRef = useRef(null);
+          // const stopDisplayingIsHovered = useHover(stopDisplayingRef);
+          // const viewButtonRef = useRef(null);
+          // const viewButtonIsHovered = useHover(viewButtonRef);
+          // const deleteButtonRef = useRef(null);
+          // const deleteButtonIsHovered = useHover(deleteButtonRef);
           return (
             <View
               style={[
                 styles.fileNameRow,
-                containerIsHovered && styles.fileNameRowHovered,
+                // containerIsHovered && styles.fileNameRowHovered,
               ]}
-              ref={containerRef}
+              // ref={containerRef}
               key={file.fileName}
             >
               <Text style={styles.fileName}>{file.fileName}</Text>
               <View style={styles.actionButtonContainer}>
                 <Pressable
-                  ref={stopDisplayingRef}
+                  // ref={stopDisplayingRef}
                   style={[
                     styles.actionButton,
                     styles.stopDisplayingButton,
-                    stopDisplayingIsHovered &&
-                      styles.stopDisplayingButtonHovered,
+                    // stopDisplayingIsHovered &&
+                    //   styles.stopDisplayingButtonHovered,
                   ]}
                 >
                   <Text style={styles.stopDisplayingText}>Stop Displaying</Text>
                 </Pressable>
                 <Pressable
-                  ref={viewButtonRef}
+                  // ref={viewButtonRef}
                   style={[
                     styles.actionButton,
-                    viewButtonIsHovered && styles.deleteButtonHovered,
+                    // viewButtonIsHovered && styles.deleteButtonHovered,
                   ]}
                   onPress={() => window.open(file.url)}
                 >
                   <Text
                     style={[
                       styles.deleteText,
-                      viewButtonIsHovered && styles.deleteTextHovered,
+                      // viewButtonIsHovered && styles.deleteTextHovered,
                     ]}
                   >
                     View
                   </Text>
                 </Pressable>
                 <Pressable
-                  ref={deleteButtonRef}
+                  // ref={deleteButtonRef}
                   style={[
                     styles.actionButton,
-                    deleteButtonIsHovered && styles.deleteButtonHovered,
+                    // deleteButtonIsHovered && styles.deleteButtonHovered,
                   ]}
+                  onPress={() => {
+                    setSelectedFile(file.fileName);
+                    setCurrentlyDisplayingSelected(true);
+                    setModalVisible(!modalVisible);
+                  }}
                 >
                   <Text
                     style={[
                       styles.deleteText,
-                      deleteButtonIsHovered && styles.deleteTextHovered,
+                      // deleteButtonIsHovered && styles.deleteTextHovered,
                     ]}
                   >
                     Delete
@@ -141,33 +199,45 @@ export const PreviouslyUploaded = (props) => {
         <Text style={styles.headerText}>Previously Uploaded</Text>
       </View>
       <View style={styles.filesContainer}>
+        {previouslyUploaded.length == 0 && (
+          <View style={styles.fileNameRow}>
+            <Text
+              style={[
+                styles.fileName,
+                { color: colors.ritThemeColor, fontWeight: "500" },
+              ]}
+            >
+              Currently no files
+            </Text>
+          </View>
+        )}
         {previouslyUploaded.map((file) => {
-          const containerRef = useRef(null);
-          const containerIsHovered = useHover(containerRef);
-          const stopDisplayingRef = useRef(null);
-          const stopDisplayingIsHovered = useHover(stopDisplayingRef);
-          const viewButtonRef = useRef(null);
-          const viewButtonIsHovered = useHover(viewButtonRef);
-          const deleteButtonRef = useRef(null);
-          const deleteButtonIsHovered = useHover(deleteButtonRef);
+          // const containerRef = useRef(null);
+          // const containerIsHovered = useHover(containerRef);
+          // const stopDisplayingRef = useRef(null);
+          // const stopDisplayingIsHovered = useHover(stopDisplayingRef);
+          // const viewButtonRef = useRef(null);
+          // const viewButtonIsHovered = useHover(viewButtonRef);
+          // const deleteButtonRef = useRef(null);
+          // const deleteButtonIsHovered = useHover(deleteButtonRef);
           return (
             <View
               style={[
                 styles.fileNameRow,
-                containerIsHovered && styles.fileNameRowHovered,
+                // containerIsHovered && styles.fileNameRowHovered,
               ]}
-              ref={containerRef}
+              // ref={containerRef}
               key={file.fileName}
             >
               <Text style={styles.fileName}>{file.fileName}</Text>
               <View style={styles.actionButtonContainer}>
                 <Pressable
-                  ref={stopDisplayingRef}
+                  // ref={stopDisplayingRef}
                   style={[
                     styles.actionButton,
                     styles.stopDisplayingButton,
-                    stopDisplayingIsHovered &&
-                      styles.stopDisplayingButtonHovered,
+                    // stopDisplayingIsHovered &&
+                    //   styles.stopDisplayingButtonHovered,
                   ]}
                 >
                   <Text style={styles.stopDisplayingText}>
@@ -175,33 +245,38 @@ export const PreviouslyUploaded = (props) => {
                   </Text>
                 </Pressable>
                 <Pressable
-                  ref={viewButtonRef}
+                  // ref={viewButtonRef}
                   onPress={() => window.open(file.url)}
                   style={[
                     styles.actionButton,
-                    viewButtonIsHovered && styles.deleteButtonHovered,
+                    // viewButtonIsHovered && styles.deleteButtonHovered,
                   ]}
                 >
                   <Text
                     style={[
                       styles.deleteText,
-                      viewButtonIsHovered && styles.deleteTextHovered,
+                      // viewButtonIsHovered && styles.deleteTextHovered,
                     ]}
                   >
                     View
                   </Text>
                 </Pressable>
                 <Pressable
-                  ref={deleteButtonRef}
+                  // ref={deleteButtonRef}
+                  onPress={() => {
+                    setSelectedFile(file.fileName);
+                    setCurrentlyDisplayingSelected(false);
+                    setModalVisible(!modalVisible);
+                  }}
                   style={[
                     styles.actionButton,
-                    deleteButtonIsHovered && styles.deleteButtonHovered,
+                    // deleteButtonIsHovered && styles.deleteButtonHovered,
                   ]}
                 >
                   <Text
                     style={[
                       styles.deleteText,
-                      deleteButtonIsHovered && styles.deleteTextHovered,
+                      // deleteButtonIsHovered && styles.deleteTextHovered,
                     ]}
                   >
                     Delete
@@ -212,6 +287,62 @@ export const PreviouslyUploaded = (props) => {
           );
         })}
       </View>
+      <Modal
+        animationType="none"
+        animationInTiming={1}
+        animationOutTiming={1}
+        transparent={true}
+        isVisible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalHeader}>Confirm Delete</Text>
+            <View style={styles.modalBody}>
+              <Text style={styles.blackMediumBoldText}>Are you sure?</Text>
+              <Text style={styles.blackMediumText}>
+                You are currently trying to delete
+              </Text>
+              <Text style={styles.orangeLargeBoldText}>{selectedFile}</Text>
+              <View style={styles.modalActionButtonContainer}>
+                <Pressable
+                  // ref={cancelButtonInModalRef}
+                  onPress={() => setModalVisible(!modalVisible)}
+                  style={[
+                    styles.actionButton,
+                    // cancelButtonInModalHovered && styles.deleteButtonHovered,
+                  ]}
+                >
+                  <Text
+                    style={[
+                      styles.deleteText,
+                      // cancelButtonInModalHovered && styles.deleteTextHovered,
+                    ]}
+                  >
+                    Cancel
+                  </Text>
+                </Pressable>
+                <Pressable
+                  // ref={deleteButtonInModalRef}
+                  onPress={() => {
+                    removeFile();
+                    setModalVisible(!modalVisible);
+                  }}
+                  style={[
+                    styles.actionButton,
+                    styles.editButton,
+                    // deleteButtonInModalHovered && styles.editButtonHovered,
+                  ]}
+                >
+                  <Text style={styles.editText}>Yes, Delete</Text>
+                </Pressable>
+              </View>
+            </View>
+          </View>
+        </View>
+      </Modal>
     </ScrollView>
   );
 };
@@ -280,5 +411,71 @@ const styles = StyleSheet.create({
   },
   deleteTextHovered: {
     color: "white",
+  },
+
+  editButton: {
+    backgroundColor: colors.ritThemeColor,
+  },
+  editText: {
+    color: "white",
+    fontWeight: "600",
+  },
+
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    marginTop: 16,
+    alignSelf: "center",
+  },
+  modalView: {
+    width: Dimensions.get("window").width / 3,
+    maxWidth: 525,
+    minHeight: 440,
+    borderWidth: 3,
+    borderColor: "black",
+    margin: 20,
+    backgroundColor: "white",
+    flexDirection: "column",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalHeader: {
+    backgroundColor: "black",
+    color: "white",
+    paddingHorizontal: 20,
+    paddingStart: 28,
+    paddingVertical: 30,
+    fontSize: 28,
+  },
+  modalBody: {
+    margin: 20,
+    flex: 1,
+  },
+  blackMediumBoldText: {
+    fontWeight: "bold",
+    fontSize: 19,
+    marginTop: 24,
+    marginBottom: 16,
+  },
+  blackMediumText: {
+    fontSize: 19,
+    marginBottom: 8,
+  },
+  orangeLargeBoldText: {
+    flex: 1,
+    fontSize: 25,
+    fontWeight: "bold",
+    color: colors.ritThemeColor,
+    marginBottom: 50,
+  },
+  modalActionButtonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });

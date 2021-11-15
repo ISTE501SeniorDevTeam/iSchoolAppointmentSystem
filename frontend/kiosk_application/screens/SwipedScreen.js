@@ -12,9 +12,9 @@ export default class SwipedScreen extends React.Component {
     super(props);
     this.state = {
       studentDisplayName:
-        (this.props.route.params &&
-          this.props.route.params.studentDisplayName) ||
-        "John Doe",
+        this.props.route.params && this.props.route.params.studentDisplayName,
+      studentAdvisor:
+        this.props.route.params && this.props.route.params.studentAdvisor,
     };
   }
 
@@ -26,6 +26,7 @@ export default class SwipedScreen extends React.Component {
     setTimeout(() => {
       this.props.navigation.navigate("degree_level", {
         studentDisplayName: this.state.studentDisplayName,
+        studentAdvisor: this.state.studentAdvisor,
       });
     }, 4000);
   };
