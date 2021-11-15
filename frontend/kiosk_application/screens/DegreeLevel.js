@@ -112,16 +112,6 @@ export default class DegreeLevel extends React.Component {
         </View>
         <View style={styles.actionButtonContainer}>
           <Pressable
-            onPress={this.backPressed}
-            style={[styles.actionButton, { borderColor: colors.ritThemeColor }]}
-          >
-            <Text
-              style={[styles.actionButtonText, { color: colors.ritThemeColor }]}
-            >
-              Back
-            </Text>
-          </Pressable>
-          <Pressable
             onPress={this.nextSelected}
             style={({ pressed }) => [
               {
