@@ -7,6 +7,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { util } from "../assets/Utility";
 import { colors } from "../styles/Main";
 import { degreeLevels } from "./DegreeLevel";
 
@@ -27,6 +28,48 @@ let gradMajorsList = [
   "Other",
 ];
 
+let advisorsWithStudents = [
+  {
+    advisorName: "Andy Advisor",
+    studentsInTheQueue: [
+      {
+        studentDisplayName: "Jim Parker",
+        emailAddress: "jpa1234@rit.edu",
+      },
+    ],
+  },
+  {
+    advisorName: "Amy Advisor",
+    studentsInTheQueue: [
+      {
+        studentDisplayName: "John Doe",
+        emailAddress: "jde1234@rit.edu",
+      },
+      {
+        studentDisplayName: "Ryan Borger",
+        emailAddress: "rb1234@rit.edu",
+      },
+      {
+        studentDisplayName: "John Simson",
+        emailAddress: "jss1234@rit.edu",
+      },
+    ],
+  },
+  {
+    advisorName: "Amy Advisor2",
+    studentsInTheQueue: [
+      {
+        studentDisplayName: "John Doe",
+        emailAddress: "jde1234@rit.edu",
+      },
+      {
+        studentDisplayName: "Ryan Borger",
+        emailAddress: "rb1234@rit.edu",
+      },
+    ],
+  },
+];
+
 export default class MajorSelection extends React.Component {
   numberOfColumns = 2;
 
@@ -42,9 +85,9 @@ export default class MajorSelection extends React.Component {
           : gradMajorsList,
       selectedDegreeLevel,
       studentDisplayName:
-        (this.props.route.params &&
-          this.props.route.params.studentDisplayName) ||
-        "John Doe",
+        this.props.route.params && this.props.route.params.studentDisplayName,
+      studentAdvisor:
+        this.props.route.params && this.props.route.params.studentAdvisor,
       selectedMajor: "",
     };
     this.prepareData();
@@ -86,10 +129,16 @@ export default class MajorSelection extends React.Component {
   nextSelected = () => {
     // check if a major is selected
     if (this.state.selectedMajor && this.state.selectedMajor.trim() != "") {
-      this.props.navigation.navigate("availability", {
-        studentDisplayName: this.state.studentDisplayName,
-        degreeLevel: this.state.selectedDegreeLevel,
+      let waitTime =
+        advisorsWithStudents.filter((advisor) => {
+          return advisor.advisorName == this.props.route.params.studentAdvisor;
+        })[0].studentsInTheQueue.length * util.averageMettingTimePerStudent;
+      this.props.navigation.navigate("reasons", {
+        studentDisplayName: this.props.route.params.studentDisplayName,
+        degreeLevel: this.props.route.params.selectedDegreeLevel,
         major: this.state.selectedMajor,
+        selectedAdvisor: this.props.route.params.studentAdvisor,
+        advisorWaitTime: waitTime,
       });
     }
   };

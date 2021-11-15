@@ -16,9 +16,11 @@ import Modal from "react-native-modal";
 export const StudentQueue = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedStudent, setSelectedStudent] = useState(null);
+  const [selectedStudentAdvisor, setSelectedStudentAdvisor] = useState(null);
 
-  let setModalVisibility = (studentName) => {
+  let setModalVisibility = (studentName, advisorName) => {
     setSelectedStudent(studentName);
+    setSelectedStudentAdvisor(advisorName);
     setModalVisible(!modalVisible);
   };
 
@@ -47,20 +49,32 @@ export const StudentQueue = (props) => {
               </View>
             </View>
             <View style={styles.studentListContainer}>
+              {queue.studentsInTheQueue.length == 0 && (
+                <View style={styles.studentRow}>
+                  <Text
+                    style={[
+                      styles.studentName,
+                      { color: colors.ritThemeColor, fontWeight: "500" },
+                    ]}
+                  >
+                    Currently no students in queue
+                  </Text>
+                </View>
+              )}
               {queue.studentsInTheQueue.map((student) => {
-                const containerRef = useRef(null);
-                const containerIsHovered = useHover(containerRef);
-                const editButtonRef = useRef(null);
-                const editButtonIsHovered = useHover(editButtonRef);
-                const deleteButtonRef = useRef(null);
-                const deleteButtonIsHovered = useHover(deleteButtonRef);
+                // const containerRef = useRef(null);
+                // const containerIsHovered = useHover(containerRef);
+                // const editButtonRef = useRef(null);
+                // const editButtonIsHovered = useHover(editButtonRef);
+                // const deleteButtonRef = useRef(null);
+                // const deleteButtonIsHovered = useHover(deleteButtonRef);
                 return (
                   <View
                     style={[
                       styles.studentRow,
-                      containerIsHovered && styles.studentRowHovered,
+                      // containerIsHovered && styles.studentRowHovered,
                     ]}
-                    ref={containerRef}
+                    // ref={containerRef}
                     key={student.emailAddress}
                   >
                     <Text style={styles.studentName}>
@@ -68,29 +82,32 @@ export const StudentQueue = (props) => {
                     </Text>
                     <View style={styles.actionButtonContainer}>
                       <Pressable
-                        ref={editButtonRef}
+                        // ref={editButtonRef}
                         style={[
                           styles.actionButton,
                           styles.editButton,
-                          editButtonIsHovered && styles.editButtonHovered,
+                          // editButtonIsHovered && styles.editButtonHovered,
                         ]}
                       >
                         <Text style={styles.editText}>Edit</Text>
                       </Pressable>
                       <Pressable
-                        ref={deleteButtonRef}
+                        // ref={deleteButtonRef}
                         onPress={() =>
-                          setModalVisibility(student.studentDisplayName)
+                          setModalVisibility(
+                            student.studentDisplayName,
+                            queue.advisorName
+                          )
                         }
                         style={[
                           styles.actionButton,
-                          deleteButtonIsHovered && styles.deleteButtonHovered,
+                          // deleteButtonIsHovered && styles.deleteButtonHovered,
                         ]}
                       >
                         <Text
                           style={[
                             styles.deleteText,
-                            deleteButtonIsHovered && styles.deleteTextHovered,
+                            // deleteButtonIsHovered && styles.deleteTextHovered,
                           ]}
                         >
                           Delete
@@ -143,6 +160,15 @@ export const StudentQueue = (props) => {
                 </Pressable>
                 <Pressable
                   ref={deleteButtonInModalRef}
+                  onPress={() => {
+                    props.deleteStudentFromQueue(
+                      selectedStudent,
+                      selectedStudentAdvisor
+                    );
+                    setModalVisible(!modalVisible);
+                    setSelectedStudent("");
+                    setSelectedStudentAdvisor("");
+                  }}
                   style={[
                     styles.actionButton,
                     styles.editButton,

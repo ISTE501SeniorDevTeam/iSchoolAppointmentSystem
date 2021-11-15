@@ -41,10 +41,12 @@ export default class Welcome extends React.Component {
     //   .then((res) => {
     //     this.props.navigation.navigate("swiped_screen", {
     //          studentDisplayName: res.data.name
+    //          studentAdvisor: res.data.advisorName
     // });
     //   .catch((res) => {});
     this.props.navigation.navigate("swiped_screen", {
       studentDisplayName: "John Doe",
+      studentAdvisor: "Andy Advisor",
     });
   };
 
