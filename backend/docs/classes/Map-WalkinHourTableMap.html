@@ -1,0 +1,1847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>iSchool CheckIn System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title"><a href="" class="phpdocumentor-title__link">iSchool CheckIn System</a></h1>
+    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+        </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -four phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/base.html">Base</a></h4>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="namespaces/map.html">Map</a></h4>
+
+                        </section>
+                <section class="phpdocumentor-sidebar__category">
+            <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="packages/Application.html">Application</a></h4>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace"><a href="packages/propel.html">propel</a></h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="packages/propel-generator.html">generator</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+            
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+    </section>
+
+    <section class="phpdocumentor-sidebar__category">
+        <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -eight phpdocumentor-content">
+                    <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/map.html">Map</a></li>
+    </ul>
+
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    WalkinHourTableMap
+
+        <span class="phpdocumentor-element__extends">
+        extends <abbr title="\Propel\Runtime\Map\TableMap">TableMap</abbr>
+    </span>
+    
+            <div class="phpdocumentor-element__package">
+            in package
+            <ul class="phpdocumentor-breadcrumbs">
+                                    <li class="phpdocumentor-breadcrumb"><a href="packages/Application.html">Application</a></li>
+                            </ul>
+        </div>
+    
+    
+            <span class="phpdocumentor-element__extends">
+            Uses
+                            <abbr title="\Propel\Runtime\ActiveQuery\InstancePoolTrait">InstancePoolTrait</abbr>,                             <abbr title="\Propel\Runtime\Map\TableMapTrait">TableMapTrait</abbr>                    </span>
+    </h2>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">28</span>
+
+    </aside>
+
+            <p class="phpdocumentor-summary">This class defines the structure of the &#039;walkin_hour&#039; table.</p>
+
+    <section class="phpdocumentor-description"><p>This map class is used by Propel to do runtime db structure discovery.
+For example, the createSelectSql() method checks the type of a given column used in an
+ORDER BY clause to know whether it needs to apply SQL to make the ORDER BY case-insensitive
+(i.e. if it's a text column type).</p>
+</section>
+
+
+
+
+
+
+
+
+<h3 id="toc">
+    Table of Contents
+    <a href="#toc" class="headerlink"><i class="fas fa-link"></i></a>
+</h3>
+
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Map-WalkinHourTableMap.html#constant_CLASS_DEFAULT">CLASS_DEFAULT</a>
+    <span>
+        &nbsp;= &#039;WalkinHour&#039;                    </span>
+</dt>
+<dd>A class that can be returned by this tableMap</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Map-WalkinHourTableMap.html#constant_CLASS_NAME">CLASS_NAME</a>
+    <span>
+        &nbsp;= &#039;.Map.WalkinHourTableMap&#039;                    </span>
+</dt>
+<dd>The (dot-path) name of this class</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Map-WalkinHourTableMap.html#constant_COL_ADVISOR_ID">COL_ADVISOR_ID</a>
+    <span>
+        &nbsp;= &#039;walkin_hour.advisor_id&#039;                    </span>
+</dt>
+<dd>the column name for the advisor_id field</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Map-WalkinHourTableMap.html#constant_COL_ENDS_AT">COL_ENDS_AT</a>
+    <span>
+        &nbsp;= &#039;walkin_hour.ends_at&#039;                    </span>
+</dt>
+<dd>the column name for the ends_at field</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Map-WalkinHourTableMap.html#constant_COL_STARTS_AT">COL_STARTS_AT</a>
+    <span>
+        &nbsp;= &#039;walkin_hour.starts_at&#039;                    </span>
+</dt>
+<dd>the column name for the starts_at field</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Map-WalkinHourTableMap.html#constant_DATABASE_NAME">DATABASE_NAME</a>
+    <span>
+        &nbsp;= &#039;default&#039;                    </span>
+</dt>
+<dd>The default database name for this class</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Map-WalkinHourTableMap.html#constant_DEFAULT_STRING_FORMAT">DEFAULT_STRING_FORMAT</a>
+    <span>
+        &nbsp;= &#039;YAML&#039;                    </span>
+</dt>
+<dd>The default string format for model objects of the related table</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Map-WalkinHourTableMap.html#constant_NUM_COLUMNS">NUM_COLUMNS</a>
+    <span>
+        &nbsp;= 3                    </span>
+</dt>
+<dd>The total number of columns</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Map-WalkinHourTableMap.html#constant_NUM_HYDRATE_COLUMNS">NUM_HYDRATE_COLUMNS</a>
+    <span>
+        &nbsp;= 3                    </span>
+</dt>
+<dd>The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Map-WalkinHourTableMap.html#constant_NUM_LAZY_LOAD_COLUMNS">NUM_LAZY_LOAD_COLUMNS</a>
+    <span>
+        &nbsp;= 0                    </span>
+</dt>
+<dd>The number of lazy-loaded columns</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Map-WalkinHourTableMap.html#constant_OM_CLASS">OM_CLASS</a>
+    <span>
+        &nbsp;= &#039;\WalkinHour&#039;                    </span>
+</dt>
+<dd>The related Propel class for this table</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Map-WalkinHourTableMap.html#constant_TABLE_NAME">TABLE_NAME</a>
+    <span>
+        &nbsp;= &#039;walkin_hour&#039;                    </span>
+</dt>
+<dd>The table name for this class</dd>
+
+                <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/Map-WalkinHourTableMap.html#property_fieldKeys">$fieldKeys</a>
+    <span>
+                &nbsp;: mixed            </span>
+</dt>
+<dd>holds an array of keys for quick access to the fieldnames array</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/Map-WalkinHourTableMap.html#property_fieldNames">$fieldNames</a>
+    <span>
+                &nbsp;: mixed            </span>
+</dt>
+<dd>holds an array of fieldnames</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/Map-WalkinHourTableMap.html#property_normalizedColumnNameMap">$normalizedColumnNameMap</a>
+    <span>
+                &nbsp;: array&lt;string|int, string&gt;            </span>
+</dt>
+<dd>Holds a list of column names and their normalized version.</dd>
+
+                <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Map-WalkinHourTableMap.html#method_addInstanceToPool">addInstanceToPool()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Adds an object to the instance pool.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Map-WalkinHourTableMap.html#method_addSelectColumns">addSelectColumns()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Add all the columns needed to create a new object.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Map-WalkinHourTableMap.html#method_buildRelations">buildRelations()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Build the RelationMap objects for this table relationships</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Map-WalkinHourTableMap.html#method_doDelete">doDelete()</a>
+    <span>
+                        &nbsp;: int    </span>
+</dt>
+<dd>Performs a DELETE on the database, given a WalkinHour or Criteria object OR a primary key value.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Map-WalkinHourTableMap.html#method_doDeleteAll">doDeleteAll()</a>
+    <span>
+                        &nbsp;: int    </span>
+</dt>
+<dd>Deletes all rows from the walkin_hour table.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Map-WalkinHourTableMap.html#method_doInsert">doInsert()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Performs an INSERT on the database, given a WalkinHour or Criteria object.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Map-WalkinHourTableMap.html#method_getOMClass">getOMClass()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>The class that the tableMap will make instances of.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Map-WalkinHourTableMap.html#method_getPrimaryKeyFromRow">getPrimaryKeyFromRow()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Retrieves the primary key from the DB resultset row
+For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
+a multi-column primary key, an array of the primary key columns will be returned.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Map-WalkinHourTableMap.html#method_getPrimaryKeyHashFromRow">getPrimaryKeyHashFromRow()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd>Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Map-WalkinHourTableMap.html#method_getTableMap">getTableMap()</a>
+    <span>
+                        &nbsp;: <abbr title="\Propel\Runtime\Map\TableMap">TableMap</abbr>    </span>
+</dt>
+<dd>Returns the TableMap related to this object.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Map-WalkinHourTableMap.html#method_initialize">initialize()</a>
+    <span>
+                        &nbsp;: void    </span>
+</dt>
+<dd>Initialize the table attributes and columns
+Relations are not initialized by this method since they are lazy loaded</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Map-WalkinHourTableMap.html#method_populateObject">populateObject()</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Populates an object of the default type or an object that inherit from the default.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Map-WalkinHourTableMap.html#method_populateObjects">populateObjects()</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>The returned array will contain objects of the default type or
+objects that inherit from the default.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Map-WalkinHourTableMap.html#method_removeInstanceFromPool">removeInstanceFromPool()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Removes an object from the instance pool.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/Map-WalkinHourTableMap.html#method_removeSelectColumns">removeSelectColumns()</a>
+    <span>
+                        &nbsp;: mixed    </span>
+</dt>
+<dd>Remove all the columns needed to create a new object.</dd>
+
+        </dl>
+
+
+
+        
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/Map-WalkinHourTableMap.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_CLASS_DEFAULT">
+        CLASS_DEFAULT
+        <a href="classes/Map-WalkinHourTableMap.html#constant_CLASS_DEFAULT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">56</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">A class that can be returned by this tableMap</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CLASS_DEFAULT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;WalkinHour&#039;</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_CLASS_NAME">
+        CLASS_NAME
+        <a href="classes/Map-WalkinHourTableMap.html#constant_CLASS_NAME" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">36</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The (dot-path) name of this class</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CLASS_NAME</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;.Map.WalkinHourTableMap&#039;</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COL_ADVISOR_ID">
+        COL_ADVISOR_ID
+        <a href="classes/Map-WalkinHourTableMap.html#constant_COL_ADVISOR_ID" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">76</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">the column name for the advisor_id field</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COL_ADVISOR_ID</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;walkin_hour.advisor_id&#039;</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COL_ENDS_AT">
+        COL_ENDS_AT
+        <a href="classes/Map-WalkinHourTableMap.html#constant_COL_ENDS_AT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">86</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">the column name for the ends_at field</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COL_ENDS_AT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;walkin_hour.ends_at&#039;</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COL_STARTS_AT">
+        COL_STARTS_AT
+        <a href="classes/Map-WalkinHourTableMap.html#constant_COL_STARTS_AT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">81</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">the column name for the starts_at field</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COL_STARTS_AT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;walkin_hour.starts_at&#039;</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DATABASE_NAME">
+        DATABASE_NAME
+        <a href="classes/Map-WalkinHourTableMap.html#constant_DATABASE_NAME" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">41</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The default database name for this class</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DATABASE_NAME</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;default&#039;</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DEFAULT_STRING_FORMAT">
+        DEFAULT_STRING_FORMAT
+        <a href="classes/Map-WalkinHourTableMap.html#constant_DEFAULT_STRING_FORMAT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">91</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The default string format for model objects of the related table</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DEFAULT_STRING_FORMAT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;YAML&#039;</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NUM_COLUMNS">
+        NUM_COLUMNS
+        <a href="classes/Map-WalkinHourTableMap.html#constant_NUM_COLUMNS" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">61</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The total number of columns</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NUM_COLUMNS</span>
+    = <span class="phpdocumentor-signature__default-value">3</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NUM_HYDRATE_COLUMNS">
+        NUM_HYDRATE_COLUMNS
+        <a href="classes/Map-WalkinHourTableMap.html#constant_NUM_HYDRATE_COLUMNS" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">71</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NUM_HYDRATE_COLUMNS</span>
+    = <span class="phpdocumentor-signature__default-value">3</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NUM_LAZY_LOAD_COLUMNS">
+        NUM_LAZY_LOAD_COLUMNS
+        <a href="classes/Map-WalkinHourTableMap.html#constant_NUM_LAZY_LOAD_COLUMNS" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">66</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The number of lazy-loaded columns</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NUM_LAZY_LOAD_COLUMNS</span>
+    = <span class="phpdocumentor-signature__default-value">0</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_OM_CLASS">
+        OM_CLASS
+        <a href="classes/Map-WalkinHourTableMap.html#constant_OM_CLASS" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">51</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The related Propel class for this table</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">OM_CLASS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;\WalkinHour&#039;</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TABLE_NAME">
+        TABLE_NAME
+        <a href="classes/Map-WalkinHourTableMap.html#constant_TABLE_NAME" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">46</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The table name for this class</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TABLE_NAME</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;walkin_hour&#039;</span>
+</code>
+
+
+    
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+            </section>
+
+        
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/Map-WalkinHourTableMap.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_fieldKeys">
+        $fieldKeys
+        <a href="classes/Map-WalkinHourTableMap.html#property_fieldKeys" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">113</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">holds an array of keys for quick access to the fieldnames array</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$fieldKeys</span>
+     = <span class="phpdocumentor-signature__default-value">array(self::TYPE_PHPNAME =&gt; array(&#039;AdvisorId&#039; =&gt; 0, &#039;StartsAt&#039; =&gt; 1, &#039;EndsAt&#039; =&gt; 2), self::TYPE_CAMELNAME =&gt; array(&#039;advisorId&#039; =&gt; 0, &#039;startsAt&#039; =&gt; 1, &#039;endsAt&#039; =&gt; 2), self::TYPE_COLNAME =&gt; array(MapWalkinHourTableMap::COL_ADVISOR_ID =&gt; 0, MapWalkinHourTableMap::COL_STARTS_AT =&gt; 1, MapWalkinHourTableMap::COL_ENDS_AT =&gt; 2), self::TYPE_FIELDNAME =&gt; array(&#039;advisor_id&#039; =&gt; 0, &#039;starts_at&#039; =&gt; 1, &#039;ends_at&#039; =&gt; 2), self::TYPE_NUM =&gt; array(0, 1, 2))</span></code>
+
+        <section class="phpdocumentor-description"><p>first dimension keys are the type constants
+e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0</p>
+</section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_fieldNames">
+        $fieldNames
+        <a href="classes/Map-WalkinHourTableMap.html#property_fieldNames" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">99</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">holds an array of fieldnames</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">$fieldNames</span>
+     = <span class="phpdocumentor-signature__default-value">array(self::TYPE_PHPNAME =&gt; array(&#039;AdvisorId&#039;, &#039;StartsAt&#039;, &#039;EndsAt&#039;), self::TYPE_CAMELNAME =&gt; array(&#039;advisorId&#039;, &#039;startsAt&#039;, &#039;endsAt&#039;), self::TYPE_COLNAME =&gt; array(MapWalkinHourTableMap::COL_ADVISOR_ID, MapWalkinHourTableMap::COL_STARTS_AT, MapWalkinHourTableMap::COL_ENDS_AT), self::TYPE_FIELDNAME =&gt; array(&#039;advisor_id&#039;, &#039;starts_at&#039;, &#039;ends_at&#039;), self::TYPE_NUM =&gt; array(0, 1, 2))</span></code>
+
+        <section class="phpdocumentor-description"><p>first dimension keys are the type constants
+e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'</p>
+</section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_normalizedColumnNameMap">
+        $normalizedColumnNameMap
+        <a href="classes/Map-WalkinHourTableMap.html#property_normalizedColumnNameMap" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">126</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Holds a list of column names and their normalized version.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
+    <span class="phpdocumentor-signature__name">$normalizedColumnNameMap</span>
+     = <span class="phpdocumentor-signature__default-value">[&#039;AdvisorId&#039; =&gt; &#039;ADVISOR_ID&#039;, &#039;WalkinHour.AdvisorId&#039; =&gt; &#039;ADVISOR_ID&#039;, &#039;advisorId&#039; =&gt; &#039;ADVISOR_ID&#039;, &#039;walkinHour.advisorId&#039; =&gt; &#039;ADVISOR_ID&#039;, &#039;WalkinHourTableMap::COL_ADVISOR_ID&#039; =&gt; &#039;ADVISOR_ID&#039;, &#039;COL_ADVISOR_ID&#039; =&gt; &#039;ADVISOR_ID&#039;, &#039;advisor_id&#039; =&gt; &#039;ADVISOR_ID&#039;, &#039;walkin_hour.advisor_id&#039; =&gt; &#039;ADVISOR_ID&#039;, &#039;StartsAt&#039; =&gt; &#039;STARTS_AT&#039;, &#039;WalkinHour.StartsAt&#039; =&gt; &#039;STARTS_AT&#039;, &#039;startsAt&#039; =&gt; &#039;STARTS_AT&#039;, &#039;walkinHour.startsAt&#039; =&gt; &#039;STARTS_AT&#039;, &#039;WalkinHourTableMap::COL_STARTS_AT&#039; =&gt; &#039;STARTS_AT&#039;, &#039;COL_STARTS_AT&#039; =&gt; &#039;STARTS_AT&#039;, &#039;starts_at&#039; =&gt; &#039;STARTS_AT&#039;, &#039;walkin_hour.starts_at&#039; =&gt; &#039;STARTS_AT&#039;, &#039;EndsAt&#039; =&gt; &#039;ENDS_AT&#039;, &#039;WalkinHour.EndsAt&#039; =&gt; &#039;ENDS_AT&#039;, &#039;endsAt&#039; =&gt; &#039;ENDS_AT&#039;, &#039;walkinHour.endsAt&#039; =&gt; &#039;ENDS_AT&#039;, &#039;WalkinHourTableMap::COL_ENDS_AT&#039; =&gt; &#039;ENDS_AT&#039;, &#039;COL_ENDS_AT&#039; =&gt; &#039;ENDS_AT&#039;, &#039;ends_at&#039; =&gt; &#039;ENDS_AT&#039;, &#039;walkin_hour.ends_at&#039; =&gt; &#039;ENDS_AT&#039;]</span></code>
+
+    
+    
+    
+
+</article>
+            </section>
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/Map-WalkinHourTableMap.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addInstanceToPool">
+        addInstanceToPool()
+        <a href="classes/Map-WalkinHourTableMap.html#method_addInstanceToPool" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">200</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Adds an object to the instance pool.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">addInstanceToPool</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/WalkinHour.html"><abbr title="\WalkinHour">WalkinHour</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$obj</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"><p>Propel keeps cached copies of objects in an instance pool when they are retrieved
+from the database. In some cases you may need to explicitly add objects
+to the cache in order to ensure that the same objects are always returned by find*()
+and findPk*() calls.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$obj</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/WalkinHour.html"><abbr title="\WalkinHour">WalkinHour</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A \WalkinHour object.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>(optional) key to use for instance map (for performance boost if key was already calculated externally).</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_addSelectColumns">
+        addSelectColumns()
+        <a href="classes/Map-WalkinHourTableMap.html#method_addSelectColumns" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">394</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Add all the columns needed to create a new object.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">addSelectColumns</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Propel\Runtime\ActiveQuery\Criteria">Criteria</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$criteria</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$alias</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"><p>Note: any columns that were marked with lazyLoad=&quot;true&quot; in the
+XML schema will not be added to the select list and only loaded
+on demand.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$criteria</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Propel\Runtime\ActiveQuery\Criteria">Criteria</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>object containing the columns to add.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$alias</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>optional table alias</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Propel\Runtime\Exception\PropelException">PropelException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>Any exceptions caught during processing will be
+rethrown wrapped into a PropelException.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_buildRelations">
+        buildRelations()
+        <a href="classes/Map-WalkinHourTableMap.html#method_buildRelations" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">178</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Build the RelationMap objects for this table relationships</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">buildRelations</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_doDelete">
+        doDelete()
+        <a href="classes/Map-WalkinHourTableMap.html#method_doDelete" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">454</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Performs a DELETE on the database, given a WalkinHour or Criteria object OR a primary key value.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">doDelete</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$values</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Propel\Runtime\Connection\ConnectionInterface">ConnectionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$con</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$values</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Criteria or WalkinHour object or primary key or array of primary keys
+which is used to create the DELETE statement</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$con</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Propel\Runtime\Connection\ConnectionInterface">ConnectionInterface</abbr></span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>the connection to use</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Propel\Runtime\Exception\PropelException">PropelException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>Any exceptions caught during processing will be
+rethrown wrapped into a PropelException.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
+if supported by native driver or if emulated using Propel.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_doDeleteAll">
+        doDeleteAll()
+        <a href="classes/Map-WalkinHourTableMap.html#method_doDeleteAll" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">501</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Deletes all rows from the walkin_hour table.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">doDeleteAll</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Propel\Runtime\Connection\ConnectionInterface">ConnectionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$con</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$con</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Propel\Runtime\Connection\ConnectionInterface">ConnectionInterface</abbr></span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>the connection to use</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The number of affected rows (if supported by underlying database driver).</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_doInsert">
+        doInsert()
+        <a href="classes/Map-WalkinHourTableMap.html#method_doInsert" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">515</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Performs an INSERT on the database, given a WalkinHour or Criteria object.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">doInsert</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$criteria</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Propel\Runtime\Connection\ConnectionInterface">ConnectionInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$con</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$criteria</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Criteria or WalkinHour object containing data that is used to create the INSERT statement.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$con</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Propel\Runtime\Connection\ConnectionInterface">ConnectionInterface</abbr></span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>the ConnectionInterface connection to use</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Propel\Runtime\Exception\PropelException">PropelException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>Any exceptions caught during processing will be
+rethrown wrapped into a PropelException.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The new primary key.</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getOMClass">
+        getOMClass()
+        <a href="classes/Map-WalkinHourTableMap.html#method_getOMClass" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">311</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The class that the tableMap will make instances of.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">getOMClass</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$withPrefix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"><p>If $withPrefix is true, the returned path
+uses a dot-path notation which is translated into a path
+relative to a location on the PHP include_path.
+(e.g. path.to.MyClass -&gt; 'path/to/MyClass.php')</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$withPrefix</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Whether or not to return the path with the class name</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>path.to.ClassName</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getPrimaryKeyFromRow">
+        getPrimaryKeyFromRow()
+        <a href="classes/Map-WalkinHourTableMap.html#method_getPrimaryKeyFromRow" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">277</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Retrieves the primary key from the DB resultset row
+For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
+a multi-column primary key, an array of the primary key columns will be returned.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">getPrimaryKeyFromRow</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$row</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$indexType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">TableMap::TYPE_NUM</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$row</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>resultset row.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$offset</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The 0-based offset for reading from the resultset row.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$indexType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">TableMap::TYPE_NUM</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
+TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The primary key of the row</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getPrimaryKeyHashFromRow">
+        getPrimaryKeyHashFromRow()
+        <a href="classes/Map-WalkinHourTableMap.html#method_getPrimaryKeyHashFromRow" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">255</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Retrieves a string version of the primary key from the DB resultset row that can be used to uniquely identify a row in this table.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">getPrimaryKeyHashFromRow</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$row</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$indexType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">TableMap::TYPE_NUM</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"><p>For tables with a single-column primary key, that simple pkey value will be returned.  For tables with
+a multi-column primary key, a serialize()d version of the primary key will be returned.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$row</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>resultset row.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$offset</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The 0-based offset for reading from the resultset row.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$indexType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">TableMap::TYPE_NUM</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
+TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>The primary key hash of the row</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getTableMap">
+        getTableMap()
+        <a href="classes/Map-WalkinHourTableMap.html#method_getTableMap" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">438</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the TableMap related to this object.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">getTableMap</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Propel\Runtime\Map\TableMap">TableMap</abbr></span></code>
+
+        <section class="phpdocumentor-description"><p>This method is not needed for general use but a specific application could have a need.</p>
+</section>
+
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Propel\Runtime\Exception\PropelException">PropelException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>Any exceptions caught during processing will be
+rethrown wrapped into a PropelException.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\Propel\Runtime\Map\TableMap">TableMap</abbr></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_initialize">
+        initialize()
+        <a href="classes/Map-WalkinHourTableMap.html#method_initialize" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">160</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Initialize the table attributes and columns
+Relations are not initialized by this method since they are lazy loaded</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">initialize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Propel\Runtime\Exception\PropelException">PropelException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_populateObject">
+        populateObject()
+        <a href="classes/Map-WalkinHourTableMap.html#method_populateObject" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">329</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Populates an object of the default type or an object that inherit from the default.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">populateObject</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$row</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$offset</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$indexType</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">TableMap::TYPE_NUM</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$row</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>row returned by DataFetcher-&gt;fetch().</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$offset</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The 0-based offset for reading from the resultset row.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$indexType</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">TableMap::TYPE_NUM</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The index type of $row. Mostly DataFetcher-&gt;getIndexType().
+One of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
+TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Propel\Runtime\Exception\PropelException">PropelException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>Any exceptions caught during processing will be
+rethrown wrapped into a PropelException.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>(WalkinHour object, last column rank)</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_populateObjects">
+        populateObjects()
+        <a href="classes/Map-WalkinHourTableMap.html#method_populateObjects" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">357</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The returned array will contain objects of the default type or
+objects that inherit from the default.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">populateObjects</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Propel\Runtime\DataFetcher\DataFetcherInterface">DataFetcherInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dataFetcher</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dataFetcher</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Propel\Runtime\DataFetcher\DataFetcherInterface">DataFetcherInterface</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Propel\Runtime\Exception\PropelException">PropelException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>Any exceptions caught during processing will be
+rethrown wrapped into a PropelException.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_removeInstanceFromPool">
+        removeInstanceFromPool()
+        <a href="classes/Map-WalkinHourTableMap.html#method_removeInstanceFromPool" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">220</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Removes an object from the instance pool.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">removeInstanceFromPool</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"><p>Propel keeps cached copies of objects in an instance pool when they are retrieved
+from the database.  In some cases -- especially when you override doDelete
+methods in your stub classes -- you may need to explicitly remove objects
+from the cache in order to prevent returning objects that no longer exist.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A \WalkinHour object or a primary key value.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_removeSelectColumns">
+        removeSelectColumns()
+        <a href="classes/Map-WalkinHourTableMap.html#method_removeSelectColumns" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="Models/Map/WalkinHourTableMap.php"><a href="files/models-map-walkinhourtablemap.html"><abbr title="Models/Map/WalkinHourTableMap.php">WalkinHourTableMap.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">418</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Remove all the columns needed to create a new object.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__name">removeSelectColumns</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Propel\Runtime\ActiveQuery\Criteria">Criteria</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$criteria</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$alias</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"><p>Note: any columns that were marked with lazyLoad=&quot;true&quot; in the
+XML schema will not be removed as they are only loaded on demand.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$criteria</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Propel\Runtime\ActiveQuery\Criteria">Criteria</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>object containing the columns to remove.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$alias</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>optional table alias</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Propel\Runtime\Exception\PropelException">PropelException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>Any exceptions caught during processing will be
+rethrown wrapped into a PropelException.</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">mixed</span>
+            &mdash;
+        
+    
+</article>
+            </section>
+
+        
+    <script type="text/javascript">
+        function loadExternalCodeSnippets(line) {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                pre.setAttribute('data-line', line)
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        var modals = document.querySelectorAll("[data-modal]");
+
+        modals.forEach(function (trigger) {
+            trigger.addEventListener("click", function (event) {
+                //event.preventDefault();
+                const modal = document.getElementById(trigger.dataset.modal);
+                modal.classList.add("phpdocumentor-modal__open");
+                loadExternalCodeSnippets(trigger.dataset.line)
+                const exits = modal.querySelectorAll("[data-exit-button]");
+                exits.forEach(function (exit) {
+                    exit.addEventListener("click", function (event) {
+                        event.preventDefault();
+                        modal.classList.remove("phpdocumentor-modal__open");
+                    });
+                });
+            });
+        });
+    </script>
+
+    </article>
+                <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+            </div>
+        </div>
+        <a href="classes/Map-WalkinHourTableMap.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+</body>
+</html>

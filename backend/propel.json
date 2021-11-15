@@ -1,0 +1,17 @@
+{
+  "propel": {
+    "database": {
+      "connections": {
+        "default": {
+          "adapter": "mysql",
+          "dsn": "mysql:host=localhost;port=3306;dbname=vm3132",
+          "user": "student",
+          "password": "student",
+          "settings": {
+            "charset": "utf8"
+          }
+        }
+      }
+    }
+  }
+}

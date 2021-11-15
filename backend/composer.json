@@ -1,0 +1,14 @@
+{
+  "require": {
+    "propel/propel": "~2.0@dev",
+    "monolog/monolog": "^2.3",
+    "firephp/firephp-core": "^0.5.3",
+    "ramsey/uuid": "^4.2",
+    "firebase/php-jwt": "^5.4",
+    "paragonie/sodium_compat": "^1.17"
+  },
+  "autoload": {
+    "classmap": ["Models"]
+  },
+  "license": "proprietary"
+}

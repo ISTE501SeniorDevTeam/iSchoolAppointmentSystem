@@ -1,0 +1,8 @@
+{
+    "propel": {
+        "paths": {
+            "schemaDir": "\/home\/MAIN\/vm3132\/Sites\/iscis\/api",
+            "phpDir": "\/home\/MAIN\/vm3132\/Sites\/iscis\/api\/Models"
+        }
+    }
+}
