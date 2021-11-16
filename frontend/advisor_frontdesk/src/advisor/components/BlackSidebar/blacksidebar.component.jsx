@@ -13,7 +13,10 @@ class BlackSidebar extends Component{
             return (
                 <div className="BlackContainer">
                 <div className="StudentListContainer">
-                    <StudentList students={this.props.listofstudents} ></StudentList>
+                    <StudentList students={this.props.listofstudents}
+                        selectStudent={(data) => this.props.setStudent(data)}
+                        selectedStudent={this.props.student} ></StudentList>
+                    
                 </div>
         
         

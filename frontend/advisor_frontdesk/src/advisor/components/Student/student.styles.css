@@ -9,25 +9,23 @@
   background-color: rgba(33, 37, 25, 1);
   border-width: none;
   border-style: none;
-}
-
-.StudentName {
   font-family: Helvetica;
   font-style: normal;
   font-weight: 300;
   font-size: 24px;
   line-height: 28px;
   color: #ffffff;
-  margin-left: 15px;
+  padding-left: 15px;
 }
 
 .StudentNameButtonContainer:hover {
   cursor: pointer;
-  /* background-color: #ffffff; */
+  color: #fff;
   background-color: #293846;
 }
 
 .active {
   cursor: pointer;
+  color: #000;
   background-color: #ffffff;
 }
