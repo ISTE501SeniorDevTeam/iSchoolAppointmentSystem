@@ -3,19 +3,25 @@
  * Entry point for all api requests
  */
 
-use Ramsey\Uuid\Uuid;
 use Monolog\Logger;
 use Monolog\Handler\FirePHPHandler;
+use Propel\Runtime\Exception\PropelException;
 
 if(empty($hit)){
   $hit = 1;
+//   header("Access-Control-Allow-Origin: *");
+  header("Access-Control-Allow-Origin", "*");
+  header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  header("Access-Control-Allow-Methods: GET, POST");
 	header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 	header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 	header("Cache-Control: no-store, no-cache, must-revalidate");
 	header("Cache-Control: post-check=0, pre-check=0", false);
+//  header("Access-Control-Allow-Origin: *");
+  header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+//  header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 	header("Pragma: no-cache");
 
-  /** @var Strin[] $endpoints of allowed endpoints */
   $endpoints = ['queue', 'role', 'student', 'user', 'reason', 'advisor', 'image', 'ad', 'stat', 'hour'];
   $basePathComponents = ["~vm3132", "iscis", "api"];
 
@@ -25,14 +31,14 @@ if(empty($hit)){
 
   $defaultLogger = new Logger('defaultLogger');
   $defaultLogger->pushHandler(new FirePHPHandler());
-  $serviceContainer->setLogger('defaultLogger', $defaultLogger);
+//  $serviceContainer->setLogger('defaultLogger', $defaultLogger);
 
   /**
    * Send a response to client as a JSON with specified response code.
    * @param object $object PHP object which will be returned tio a client as a JSON
    * @param int $code HTTP response status code to be returned to the client
    */
-  function sendHttpResponse(object $object, int $code):void {
+  function sendHttpResponse($object, int $code):void {
     header('Content-Type: application/json; charset=utf-8');
     http_response_code($code);
     die(json_encode($object, JSON_UNESCAPED_SLASHES));
@@ -73,7 +79,7 @@ if(empty($hit)){
    * Send a PHP object to a client as a JSON with response code 200.
    * @param Object $response Object to be sent
    */
-  function returnResponse(Object $response): void {
+  function returnResponse($response): void {
     sendHttpResponse($response, 200);
   }
 
@@ -109,6 +115,7 @@ if(empty($hit)){
   /** Dispatch a POST request to an appropriate endpoint route file with a name of requested operation
    * @param String[] $pathComponents array containing components of request URL path
    * @param String[] $requestParameters array containing URL request parameters
+   * @throws PropelException
    */
   function parsePost(array $pathComponents, array $requestParameters): void {
     global $endpoints;

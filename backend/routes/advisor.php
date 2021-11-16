@@ -1,7 +1,12 @@
 <?php
 /** @author Vladimir Martynenko */
 
-  function checkCurrent($advisorId): bool {
+/**
+ * Check if an advisor with given id is currently scheduled for walkins
+ * @param string $advisorId uid of an advisor to check
+ * @return bool returns true if advisor is scheduled to accept walkins
+ */
+  function checkCurrent(string $advisorId): bool {
     $now = date("Y-m-d H:i:s");
     $hour = WalkinHourQuery::create()->
         filterByAdvisorId($advisorId)->
@@ -9,10 +14,14 @@
         filterByEndsAt(array('min' => $now))->
         findOne();
     return $hour !== null;
-    // var_dump($hour);
   } // checkCurrent
 
-  function makeAdvisorJson($advisor): object {
+/**
+ * Convert propel object to a PHP object ready to return to client as JSON
+ * @param Employee $advisor propel object to convert  
+ * @return object converted object
+ */
+  function makeAdvisorJson(Employee $advisor): object {
     $result = [
       'AdvisorId' => $advisor->getUid(),
       'Name' => $advisor->getName(),
@@ -34,7 +43,12 @@
     return (Object) $result;
   } // makeAdvisorJson
 
-  function getAdvisor($advisorId) {
+/**
+ * Return an advisor by id
+ * @param string $advisorId An id of advisor to locate
+ * @return object PHP object containing record for an advisor
+ */
+  function getAdvisor(string $advisorId): object {
     $advisor = EmployeeQuery::create()->
         where('Employee.is_grad_advisor IS NOT NULL')->
         findOneByUid($advisorId);
@@ -43,8 +57,12 @@
     }
     return makeAdvisorJson($advisor);
   } // getAdvisor
-  
-  function getAllAdvisors() {
+
+/**
+ * Return all advisors in the database
+ * @return array|null array of PHP objects containing records for all advisors
+ */
+  function getAllAdvisors(): ?array {
     $advisors = EmployeeQuery::create()->
         where('Employee.is_grad_advisor IS NOT NULL')->
         find();
@@ -58,7 +76,12 @@
     return $result;
   } // getAllAdvisors
 
-  function getCurrentAdvisors() {
+
+/**
+ * Get all advisors scheduled to accept walkins currently
+ * @return array|null Array of PHP objects containing records for advisors
+ */
+  function getCurrentAdvisors(): ?array {
     $advisors = EmployeeQuery::create()->
         where('Employee.is_grad_advisor IS NOT NULL')->
         find();
@@ -75,7 +98,11 @@
     return $result;
   } // getCurrentAdvisors
 
-  function processGetRoute($pathComponents, $requestParameters){
+/** Dispatch GET request to appropriate functions 
+ * @param array $pathComponents array containing url path components 
+ * @param array $requestParameters array containing request parameters
+ */
+  function processGetRoute(array $pathComponents, array $requestParameters): void {
     $param = array_shift($pathComponents);
     if (!$param) {
       returnResponse(getAllAdvisors());
@@ -86,19 +113,12 @@
     returnResponse(getAdvisor($param));
   }
 
-  function processPostRoute($operation, $pathComponents, $requestParameters){
-    switch ($operation) {
-      case "create":
-        returnServerError("$operation NOT IMPLEMENTED");      
-        break;
-      case "update":
-        returnServerError("$operation NOT IMPLEMENTED");
-        break;
-      case "delete":
-        returnServerError("$operation NOT IMPLEMENTED");
-        break;
-      default:
-        returnUserError("$operation is not a supported operation for queue endpoint.");
-        break;
-    }
+/**
+ * Notifies client to use user endpoint to modify advisors
+ * @param string $operation name of operation requested
+ * @param array $pathComponents array containing url path components
+ * @param array $requestParameters array containing request parameters
+ */
+  function processPostRoute(string $operation, array $pathComponents, array $requestParameters): void {
+    returnUserError("$operation is not a supported operation for advisor endpoint (use user endpoint) .");
   }

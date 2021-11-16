@@ -217,7 +217,7 @@ CREATE TABLE `hour`
     `end_recurrence` DATETIME,
     `start_time` DATETIME,
     `end_time` DATETIME,
-    `day_of_week` INTEGER,
+    `day_of_week` DATETIME,
     PRIMARY KEY (`id`),
     INDEX `hour_fi_17b25f` (`advisor_id`),
     CONSTRAINT `hour_fk_17b25f`

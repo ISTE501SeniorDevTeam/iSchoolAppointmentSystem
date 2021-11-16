@@ -174,7 +174,7 @@ by another object which falls in this transaction.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/Base-Hour.html#property_day_of_week">$day_of_week</a>
     <span>
-                &nbsp;: <abbr title="\DateTime">DateTime</abbr>|null            </span>
+                &nbsp;: int|null            </span>
 </dt>
 <dd>The value for the day_of_week field.</dd>
 
@@ -388,9 +388,9 @@ echo $book-&gt;exportTo(&#039;JSON&#039;);
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Base-Hour.html#method_getDayOfWeek">getDayOfWeek()</a>
     <span>
-                        &nbsp;: string|<abbr title="\DateTime">DateTime</abbr>|null    </span>
+                        &nbsp;: int|null    </span>
 </dt>
-<dd>Get the [optionally formatted] temporal [day_of_week] column value.</dd>
+<dd>Get the [day_of_week] column value.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Base-Hour.html#method_getEmployee">getEmployee()</a>
@@ -649,7 +649,7 @@ and then saved.</dd>
     <span>
                         &nbsp;: $this|<a href="classes/Hour.html"><abbr title="\Hour">Hour</abbr></a>    </span>
 </dt>
-<dd>Sets the value of [day_of_week] column to a normalized version of the date/time value specified.</dd>
+<dd>Set the value of [day_of_week] column.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/Base-Hour.html#method_setDeleted">setDeleted()</a>
@@ -960,7 +960,7 @@ by another object which falls in this transaction.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type"><abbr title="\DateTime">DateTime</abbr>|null</span>
+        <span class="phpdocumentor-signature__type">int|null</span>
     <span class="phpdocumentor-signature__name">$day_of_week</span>
     </code>
 
@@ -1289,7 +1289,7 @@ The formatters can add supplementary columns based on a resultset</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1688</span>
+    <span class="phpdocumentor-element-found-in__line">1669</span>
 
     </aside>
 
@@ -1409,7 +1409,7 @@ Avoids recursive loops that turn into segmentation faults when serializing</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1599</span>
+    <span class="phpdocumentor-element-found-in__line">1580</span>
 
     </aside>
 
@@ -1442,7 +1442,7 @@ Avoids recursive loops that turn into segmentation faults when serializing</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1353</span>
+    <span class="phpdocumentor-element-found-in__line">1334</span>
 
     </aside>
 
@@ -1477,7 +1477,7 @@ Avoids recursive loops that turn into segmentation faults when serializing</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1395</span>
+    <span class="phpdocumentor-element-found-in__line">1376</span>
 
     </aside>
 
@@ -1531,7 +1531,7 @@ of whether or not they have been modified.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1558</span>
+    <span class="phpdocumentor-element-found-in__line">1539</span>
 
     </aside>
 
@@ -1566,7 +1566,7 @@ change of those foreign objects when you call `save` there).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1586</span>
+    <span class="phpdocumentor-element-found-in__line">1567</span>
 
     </aside>
 
@@ -1614,7 +1614,7 @@ Necessary for object serialisation.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1492</span>
+    <span class="phpdocumentor-element-found-in__line">1473</span>
 
     </aside>
 
@@ -1680,7 +1680,7 @@ objects.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1465</span>
+    <span class="phpdocumentor-element-found-in__line">1446</span>
 
     </aside>
 
@@ -1760,7 +1760,7 @@ objects.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">837</span>
+    <span class="phpdocumentor-element-found-in__line">822</span>
 
     </aside>
 
@@ -1833,7 +1833,7 @@ objects.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">780</span>
+    <span class="phpdocumentor-element-found-in__line">765</span>
 
     </aside>
 
@@ -2006,7 +2006,7 @@ echo $book-&gt;exportTo(&#039;JSON&#039;);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1286</span>
+    <span class="phpdocumentor-element-found-in__line">1267</span>
 
     </aside>
 
@@ -2102,7 +2102,7 @@ The default key type is the column's TableMap::TYPE_PHPNAME.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1080</span>
+    <span class="phpdocumentor-element-found-in__line">1065</span>
 
     </aside>
 
@@ -2161,7 +2161,7 @@ Defaults to TableMap::TYPE_PHPNAME.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1095</span>
+    <span class="phpdocumentor-element-found-in__line">1080</span>
 
     </aside>
 
@@ -2285,66 +2285,24 @@ If format is NULL, then the raw DateTime object will be returned.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">502</span>
+    <span class="phpdocumentor-element-found-in__line">494</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get the [optionally formatted] temporal [day_of_week] column value.</p>
+        <p class="phpdocumentor-summary">Get the [day_of_week] column value.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getDayOfWeek</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$format</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|<abbr title="\DateTime">DateTime</abbr>|null</span></code>
+                <span class="phpdocumentor-signature__name">getDayOfWeek</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|null</span></code>
 
     
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$format</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The date/time format string (either date()-style or strftime()-style).
-If format is NULL, then the raw DateTime object will be returned.</p>
-</section>
-
-            </dd>
-            </dl>
-
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Propel\Runtime\Exception\PropelException">PropelException</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><ul>
-<li>if unable to parse/validate the date/time value.</li>
-</ul>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">psalm-return</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>($format is null ? DateTime|null : string|null)</p>
-</section>
-
-                                    </dd>
-                        </dl>
+    
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string|<abbr title="\DateTime">DateTime</abbr>|null</span>
+    <span class="phpdocumentor-signature__response_type">int|null</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL, and 0 if column value is 0000-00-00 00:00:00</p>
-</section>
-
+        
     
 </article>
                     <article
@@ -2360,7 +2318,7 @@ If format is NULL, then the raw DateTime object will be returned.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1537</span>
+    <span class="phpdocumentor-element-found-in__line">1518</span>
 
     </aside>
 
@@ -2639,7 +2597,7 @@ If format is NULL, then the raw DateTime object will be returned.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1429</span>
+    <span class="phpdocumentor-element-found-in__line">1410</span>
 
     </aside>
 
@@ -2914,7 +2872,7 @@ If format is NULL, then the raw DateTime object will be returned.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1409</span>
+    <span class="phpdocumentor-element-found-in__line">1390</span>
 
     </aside>
 
@@ -2950,7 +2908,7 @@ primary key. Otherwise, return the hash code of the object.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">683</span>
+    <span class="phpdocumentor-element-found-in__line">671</span>
 
     </aside>
 
@@ -3033,7 +2991,7 @@ modified <em>and</em> has some values set which are non-default.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">707</span>
+    <span class="phpdocumentor-element-found-in__line">695</span>
 
     </aside>
 
@@ -3132,7 +3090,7 @@ TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1337</span>
+    <span class="phpdocumentor-element-found-in__line">1318</span>
 
     </aside>
 
@@ -3361,7 +3319,7 @@ and then saved.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1449</span>
+    <span class="phpdocumentor-element-found-in__line">1430</span>
 
     </aside>
 
@@ -3394,7 +3352,7 @@ and then saved.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1672</span>
+    <span class="phpdocumentor-element-found-in__line">1653</span>
 
     </aside>
 
@@ -3437,7 +3395,7 @@ and then saved.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1636</span>
+    <span class="phpdocumentor-element-found-in__line">1617</span>
 
     </aside>
 
@@ -3480,7 +3438,7 @@ and then saved.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1618</span>
+    <span class="phpdocumentor-element-found-in__line">1599</span>
 
     </aside>
 
@@ -3523,7 +3481,7 @@ and then saved.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1654</span>
+    <span class="phpdocumentor-element-found-in__line">1635</span>
 
     </aside>
 
@@ -3566,7 +3524,7 @@ and then saved.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1663</span>
+    <span class="phpdocumentor-element-found-in__line">1644</span>
 
     </aside>
 
@@ -3609,7 +3567,7 @@ and then saved.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1627</span>
+    <span class="phpdocumentor-element-found-in__line">1608</span>
 
     </aside>
 
@@ -3652,7 +3610,7 @@ and then saved.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1609</span>
+    <span class="phpdocumentor-element-found-in__line">1590</span>
 
     </aside>
 
@@ -3695,7 +3653,7 @@ and then saved.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1645</span>
+    <span class="phpdocumentor-element-found-in__line">1626</span>
 
     </aside>
 
@@ -3738,7 +3696,7 @@ and then saved.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">797</span>
+    <span class="phpdocumentor-element-found-in__line">782</span>
 
     </aside>
 
@@ -3857,7 +3815,7 @@ and then saved.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">872</span>
+    <span class="phpdocumentor-element-found-in__line">857</span>
 
     </aside>
 
@@ -3929,7 +3887,7 @@ single transaction.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">537</span>
+    <span class="phpdocumentor-element-found-in__line">525</span>
 
     </aside>
 
@@ -3976,7 +3934,7 @@ single transaction.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1222</span>
+    <span class="phpdocumentor-element-found-in__line">1203</span>
 
     </aside>
 
@@ -4040,7 +3998,7 @@ Defaults to TableMap::TYPE_PHPNAME.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1237</span>
+    <span class="phpdocumentor-element-found-in__line">1218</span>
 
     </aside>
 
@@ -4096,7 +4054,7 @@ Defaults to TableMap::TYPE_PHPNAME.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">562</span>
+    <span class="phpdocumentor-element-found-in__line">550</span>
 
     </aside>
 
@@ -4144,26 +4102,25 @@ Empty strings are treated as NULL.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">662</span>
+    <span class="phpdocumentor-element-found-in__line">649</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Sets the value of [day_of_week] column to a normalized version of the date/time value specified.</p>
+        <p class="phpdocumentor-summary">Set the value of [day_of_week] column.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">setDayOfWeek</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|int|<abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this|<a href="classes/Hour.html"><abbr title="\Hour">Hour</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">setDayOfWeek</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$v</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this|<a href="classes/Hour.html"><abbr title="\Hour">Hour</abbr></a></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$v</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|int|<abbr title="\DateTimeInterface">DateTimeInterface</abbr>|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>string, integer (timestamp), or \DateTimeInterface value.
-Empty strings are treated as NULL.</p>
+                    <section class="phpdocumentor-description"><p>New value</p>
 </section>
 
             </dd>
@@ -4237,7 +4194,7 @@ Empty strings are treated as NULL.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1509</span>
+    <span class="phpdocumentor-element-found-in__line">1490</span>
 
     </aside>
 
@@ -4296,7 +4253,7 @@ Empty strings are treated as NULL.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">602</span>
+    <span class="phpdocumentor-element-found-in__line">590</span>
 
     </aside>
 
@@ -4344,7 +4301,7 @@ Empty strings are treated as NULL.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">642</span>
+    <span class="phpdocumentor-element-found-in__line">630</span>
 
     </aside>
 
@@ -4392,7 +4349,7 @@ Empty strings are treated as NULL.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">517</span>
+    <span class="phpdocumentor-element-found-in__line">505</span>
 
     </aside>
 
@@ -4485,7 +4442,7 @@ by Propel-generated children and objects.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1440</span>
+    <span class="phpdocumentor-element-found-in__line">1421</span>
 
     </aside>
 
@@ -4530,7 +4487,7 @@ by Propel-generated children and objects.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">582</span>
+    <span class="phpdocumentor-element-found-in__line">570</span>
 
     </aside>
 
@@ -4578,7 +4535,7 @@ Empty strings are treated as NULL.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">622</span>
+    <span class="phpdocumentor-element-found-in__line">610</span>
 
     </aside>
 
@@ -4682,7 +4639,7 @@ Empty strings are treated as NULL.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1143</span>
+    <span class="phpdocumentor-element-found-in__line">1128</span>
 
     </aside>
 
@@ -4761,7 +4718,7 @@ Defaults to TableMap::TYPE_PHPNAME.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">966</span>
+    <span class="phpdocumentor-element-found-in__line">951</span>
 
     </aside>
 
@@ -4826,7 +4783,7 @@ Defaults to TableMap::TYPE_PHPNAME.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">922</span>
+    <span class="phpdocumentor-element-found-in__line">907</span>
 
     </aside>
 
@@ -4896,7 +4853,7 @@ All related objects are also updated in this method.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/Hour.php"><a href="files/models-base-hour.html"><abbr title="Models/Base/Hour.php">Hour.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1062</span>
+    <span class="phpdocumentor-element-found-in__line">1047</span>
 
     </aside>
 

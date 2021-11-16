@@ -115,7 +115,7 @@ abstract class Hour implements ActiveRecordInterface
     /**
      * The value for the day_of_week field.
      *
-     * @var        DateTime|null
+     * @var        int|null
      */
     protected $day_of_week;
 
@@ -487,25 +487,13 @@ abstract class Hour implements ActiveRecordInterface
     }
 
     /**
-     * Get the [optionally formatted] temporal [day_of_week] column value.
+     * Get the [day_of_week] column value.
      *
-     *
-     * @param string|null $format The date/time format string (either date()-style or strftime()-style).
-     *   If format is NULL, then the raw DateTime object will be returned.
-     *
-     * @return string|DateTime|null Formatted date/time value as string or DateTime object (if format is NULL), NULL if column is NULL, and 0 if column value is 0000-00-00 00:00:00
-     *
-     * @throws PropelException - if unable to parse/validate the date/time value.
-     *
-     * @psalm-return ($format is null ? DateTime|null : string|null)
+     * @return int|null
      */
-    public function getDayOfWeek($format = null)
+    public function getDayOfWeek()
     {
-        if ($format === null) {
-            return $this->day_of_week;
-        } else {
-            return $this->day_of_week instanceof \DateTimeInterface ? $this->day_of_week->format($format) : null;
-        }
+        return $this->day_of_week;
     }
 
     /**
@@ -653,21 +641,21 @@ abstract class Hour implements ActiveRecordInterface
     } // setEndTime()
 
     /**
-     * Sets the value of [day_of_week] column to a normalized version of the date/time value specified.
+     * Set the value of [day_of_week] column.
      *
-     * @param  string|integer|\DateTimeInterface|null $v string, integer (timestamp), or \DateTimeInterface value.
-     *               Empty strings are treated as NULL.
+     * @param int|null $v New value
      * @return $this|\Hour The current object (for fluent API support)
      */
     public function setDayOfWeek($v)
     {
-        $dt = PropelDateTime::newInstance($v, null, 'DateTime');
-        if ($this->day_of_week !== null || $dt !== null) {
-            if ($this->day_of_week === null || $dt === null || $dt->format("Y-m-d H:i:s.u") !== $this->day_of_week->format("Y-m-d H:i:s.u")) {
-                $this->day_of_week = $dt === null ? null : clone $dt;
-                $this->modifiedColumns[HourTableMap::COL_DAY_OF_WEEK] = true;
-            }
-        } // if either are not null
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->day_of_week !== $v) {
+            $this->day_of_week = $v;
+            $this->modifiedColumns[HourTableMap::COL_DAY_OF_WEEK] = true;
+        }
 
         return $this;
     } // setDayOfWeek()
@@ -745,10 +733,7 @@ abstract class Hour implements ActiveRecordInterface
             $this->end_time = (null !== $col) ? PropelDateTime::newInstance($col, null, 'DateTime') : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : HourTableMap::translateFieldName('DayOfWeek', TableMap::TYPE_PHPNAME, $indexType)];
-            if ($col === '0000-00-00 00:00:00') {
-                $col = null;
-            }
-            $this->day_of_week = (null !== $col) ? PropelDateTime::newInstance($col, null, 'DateTime') : null;
+            $this->day_of_week = (null !== $col) ? (int) $col : null;
             $this->resetModified();
 
             $this->setNew(false);
@@ -1031,7 +1016,7 @@ abstract class Hour implements ActiveRecordInterface
                         $stmt->bindValue($identifier, $this->end_time ? $this->end_time->format("Y-m-d H:i:s.u") : null, PDO::PARAM_STR);
                         break;
                     case 'day_of_week':
-                        $stmt->bindValue($identifier, $this->day_of_week ? $this->day_of_week->format("Y-m-d H:i:s.u") : null, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->day_of_week, PDO::PARAM_INT);
                         break;
                 }
             }
@@ -1176,10 +1161,6 @@ abstract class Hour implements ActiveRecordInterface
 
         if ($result[$keys[6]] instanceof \DateTimeInterface) {
             $result[$keys[6]] = $result[$keys[6]]->format('Y-m-d H:i:s.u');
-        }
-
-        if ($result[$keys[7]] instanceof \DateTimeInterface) {
-            $result[$keys[7]] = $result[$keys[7]]->format('Y-m-d H:i:s.u');
         }
 
         $virtualColumns = $this->virtualColumns;

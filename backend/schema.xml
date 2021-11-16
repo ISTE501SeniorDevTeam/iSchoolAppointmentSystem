@@ -114,7 +114,7 @@
     <column name="end_recurrence"  type="timestamp"        required="false" primaryKey="false" autoIncrement="false" />
     <column name="start_time"      type="timestamp"        required="false" primaryKey="false" autoIncrement="false" />
     <column name="end_time"        type="timestamp"        required="false" primaryKey="false" autoIncrement="false" />
-    <column name="day_of_week"     type="timestamp"        required="false" primaryKey="false" autoIncrement="false" />
+    <column name="day_of_week"     type="INTEGER"          required="false" primaryKey="false" autoIncrement="false" />
     <foreign-key foreignTable="employee">
       <reference local="advisor_id" foreign="uid" />
     </foreign-key>

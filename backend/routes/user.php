@@ -12,6 +12,7 @@
  * Makes a PHP object suitable for conversion to JSON
  * @param Employee $user user to convert to object
  * @return object a PHP object to return to user after converting to JSON
+ * @throws PropelException
  */
   function makeUser(Employee $user): object{
     $result = (object)[

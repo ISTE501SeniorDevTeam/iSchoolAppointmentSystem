@@ -68,7 +68,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildHour|null findOneByEndRecurrence(string $end_recurrence) Return the first ChildHour filtered by the end_recurrence column
  * @method     ChildHour|null findOneByStartTime(string $start_time) Return the first ChildHour filtered by the start_time column
  * @method     ChildHour|null findOneByEndTime(string $end_time) Return the first ChildHour filtered by the end_time column
- * @method     ChildHour|null findOneByDayOfWeek(string $day_of_week) Return the first ChildHour filtered by the day_of_week column *
+ * @method     ChildHour|null findOneByDayOfWeek(int $day_of_week) Return the first ChildHour filtered by the day_of_week column *
 
  * @method     ChildHour requirePk($key, ConnectionInterface $con = null) Return the ChildHour by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildHour requireOne(ConnectionInterface $con = null) Return the first ChildHour matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -80,7 +80,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildHour requireOneByEndRecurrence(string $end_recurrence) Return the first ChildHour filtered by the end_recurrence column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildHour requireOneByStartTime(string $start_time) Return the first ChildHour filtered by the start_time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildHour requireOneByEndTime(string $end_time) Return the first ChildHour filtered by the end_time column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildHour requireOneByDayOfWeek(string $day_of_week) Return the first ChildHour filtered by the day_of_week column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildHour requireOneByDayOfWeek(int $day_of_week) Return the first ChildHour filtered by the day_of_week column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildHour[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildHour objects based on current ModelCriteria
  * @psalm-method ObjectCollection&\Traversable<ChildHour> find(ConnectionInterface $con = null) Return ChildHour objects based on current ModelCriteria
@@ -98,8 +98,8 @@ use Propel\Runtime\Exception\PropelException;
  * @psalm-method ObjectCollection&\Traversable<ChildHour> findByStartTime(string $start_time) Return ChildHour objects filtered by the start_time column
  * @method     ChildHour[]|ObjectCollection findByEndTime(string $end_time) Return ChildHour objects filtered by the end_time column
  * @psalm-method ObjectCollection&\Traversable<ChildHour> findByEndTime(string $end_time) Return ChildHour objects filtered by the end_time column
- * @method     ChildHour[]|ObjectCollection findByDayOfWeek(string $day_of_week) Return ChildHour objects filtered by the day_of_week column
- * @psalm-method ObjectCollection&\Traversable<ChildHour> findByDayOfWeek(string $day_of_week) Return ChildHour objects filtered by the day_of_week column
+ * @method     ChildHour[]|ObjectCollection findByDayOfWeek(int $day_of_week) Return ChildHour objects filtered by the day_of_week column
+ * @psalm-method ObjectCollection&\Traversable<ChildHour> findByDayOfWeek(int $day_of_week) Return ChildHour objects filtered by the day_of_week column
  * @method     ChildHour[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  * @psalm-method \Propel\Runtime\Util\PropelModelPager&\Traversable<ChildHour> paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
@@ -576,14 +576,12 @@ abstract class HourQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByDayOfWeek('2011-03-14'); // WHERE day_of_week = '2011-03-14'
-     * $query->filterByDayOfWeek('now'); // WHERE day_of_week = '2011-03-14'
-     * $query->filterByDayOfWeek(array('max' => 'yesterday')); // WHERE day_of_week > '2011-03-13'
+     * $query->filterByDayOfWeek(1234); // WHERE day_of_week = 1234
+     * $query->filterByDayOfWeek(array(12, 34)); // WHERE day_of_week IN (12, 34)
+     * $query->filterByDayOfWeek(array('min' => 12)); // WHERE day_of_week > 12
      * </code>
      *
      * @param     mixed $dayOfWeek The value to use as filter.
-     *              Values can be integers (unix timestamps), DateTime objects, or strings.
-     *              Empty strings are treated as NULL.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.

@@ -1,8 +1,17 @@
 <?php
 /** @author Vladimir Martynenko */
+
+  use Propel\Runtime\Exception\PropelException;
+
   const FORMAT = 'Y-m-d H:i:s';
   const TZ = 'America/New_York';
 
+/**
+ * Convert propel object to PHP object ready to return as JSON
+ * @param Ad $ad
+ * @return object
+ * @throws PropelException
+ */
   function convertAd(Ad $ad): object {
     return (object)[
       'Id' => $ad->getId(),
@@ -12,7 +21,13 @@
     ];
   } // convertAd
 
-  function getAd(String $adId): object {
+/**
+ * Return a php object containing a record for an ad with the id provided
+ * @param String $adId an id of ad to get 
+ * @return object php object containing a record for an ad with the id provided
+ * @throws PropelException
+ */
+function getAd(String $adId): object {
     $ad = AdQuery::create()->findOneById($adId);
     if($ad === null){
       returnUserError("Ad with id $adId not found");
@@ -20,6 +35,10 @@
     return convertAd($ad);
   } // getAd
 
+/** Get all ads in the database
+ * @return array an array pf PHP objects containing all ar records in the database
+ * @throws PropelException
+ */
   function getAllAds(): array {
     $ads = AdQuery::create()->find();
     if($ads === null){
@@ -32,6 +51,10 @@
     return $result;
   } // getAllAds
 
+/** Return ads that are scheduled to be displayed currently
+ * @return array array of PHP objects containing ads scheduled to display currently
+ * @throws PropelException
+ */
   function getCurrentAds(): array {
     $now = date_create('now', new DateTimeZone(TZ));
     $ads = AdQuery::create()->
@@ -50,12 +73,17 @@
     return $result;
   } // getCurrentAds
 
+/**
+ * Create a new record in the database with values provided in the request body
+ * @return object PHP object containing a new record with (including ID)
+ * @throws PropelException
+ */
   function createAd(): object {
     if(empty($_POST['url'])){
       returnUserError('Missing Url parameter');
     }
-    $startsAt = isset($_POST['starts_at'])? $_POST['starts_at']: null;
-    $endsAt   = isset($_POST['ends_at'])?   $_POST['ends_at']:   null;
+    $startsAt = $_POST['starts_at'] ?? null;
+    $endsAt   = $_POST['ends_at'] ?? null;
     $tz = new DateTimeZone(TZ);
     if($startsAt !== null){
       $startsAt = date_create($startsAt, $tz);
@@ -80,8 +108,11 @@
     $ad->save();
     return convertAd($ad);
   } // createAd
-  
-  function updateStartsAt($ad): void{
+
+/**  Processes update of starts_at field with new value in the body of the request
+ * @param Ad $ad propel object containing the ad to update
+ */
+  function updateStartsAt(Ad $ad): void{
     $startsAt = $_POST['starts_at'] ?? null;
     if($startsAt !== null){
       if($startsAt === '' || $startsAt === 'false'){
@@ -96,7 +127,10 @@
     }
   } // updateStartsAt
 
-  function updateEndsAt($ad): void {
+/** Processes update of ends_at field with new value in the body of the request
+ * @param Ad $ad propel object containing the ad to update 
+ */
+  function updateEndsAt(Ad $ad): void {
     $endsAt = $_POST['ends_at'] ?? null;
     if($endsAt !== null){
       if($endsAt === '' || $endsAt === 'false'){
@@ -111,6 +145,12 @@
     }
   } // updateEndsAt
 
+/**
+ * Update an ad with new values provided in the body of a request
+ * @param string $adId ad id of an object being updated
+ * @return object a PHP object containing an update ad record
+ * @throws PropelException
+ */
   function updateAd(string $adId): object {
     $ad = AdQuery::create()->findOneById($adId);
     if($ad === null){
@@ -129,7 +169,13 @@
     return convertAd($ad);
   } // updateAd
 
-  function deleteAd(string $adId): object{
+/**
+ * Delete an ad from the database
+ * @param string $adId an id of an ad to delete 
+ * @return object returns a number of records deleted as a PHP object
+ * @throws PropelException
+ */
+function deleteAd(string $adId): object{
     $ad = AdQuery::create()->findOneById($adId);
     if($ad === null){
       return (Object)['Delete' => 0];
@@ -138,6 +184,11 @@
     return (Object)['Delete' => 1];
   } // deleteAd
 
+/**
+ * Dispatch a GET request to functions
+ * @param array $pathComponents array containing elements of url path
+ * @throws PropelException
+ */
   function processGetRoute(array $pathComponents): void{
     $param = array_shift($pathComponents);
     if ($param === null) {
@@ -149,7 +200,13 @@
     returnResponse(getAd($param));
   } // processGetRoute
 
-  function processPostRoute(string $operation, array $pathComponents): void {
+/**
+ * Dispatches post request to functions
+ * @param string $operation name of operation to perform
+ * @param array $pathComponents array containing components of url path
+ * @throws PropelException
+ */
+function processPostRoute(string $operation, array $pathComponents): void {
     if ($operation === 'create') {
       returnResponse(createAd());
     }

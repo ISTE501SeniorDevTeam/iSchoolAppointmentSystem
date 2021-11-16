@@ -235,7 +235,7 @@ class HourTableMap extends TableMap
         $this->addColumn('end_recurrence', 'EndRecurrence', 'TIMESTAMP', false, null, null);
         $this->addColumn('start_time', 'StartTime', 'TIMESTAMP', false, null, null);
         $this->addColumn('end_time', 'EndTime', 'TIMESTAMP', false, null, null);
-        $this->addColumn('day_of_week', 'DayOfWeek', 'TIMESTAMP', false, null, null);
+        $this->addColumn('day_of_week', 'DayOfWeek', 'INTEGER', false, null, null);
     } // initialize()
 
     /**

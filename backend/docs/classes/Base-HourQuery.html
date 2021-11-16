@@ -202,7 +202,7 @@
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>ObjectCollection&amp;\Traversable<ChildHour> findByDayOfWeek(string $day_of_week) Return ChildHour objects filtered by the day_of_week column</p>
+                                                 <section class="phpdocumentor-description"><p>ObjectCollection&amp;\Traversable<ChildHour> findByDayOfWeek(int $day_of_week) Return ChildHour objects filtered by the day_of_week column</p>
 </section>
 
                                     </dd>
@@ -1016,7 +1016,7 @@ $objs = $c-&gt;findPks(array(12, 56, 832), $con);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/HourQuery.php"><a href="files/models-base-hourquery.html"><abbr title="Models/Base/HourQuery.php">HourQuery.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">801</span>
+    <span class="phpdocumentor-element-found-in__line">799</span>
 
     </aside>
 
@@ -1081,7 +1081,7 @@ if supported by native driver or if emulated using Propel.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/HourQuery.php"><a href="files/models-base-hourquery.html"><abbr title="Models/Base/HourQuery.php">HourQuery.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">771</span>
+    <span class="phpdocumentor-element-found-in__line">769</span>
 
     </aside>
 
@@ -1293,7 +1293,7 @@ Use associative array('min' =&gt; $minValue, 'max' =&gt; $maxValue) for interval
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/HourQuery.php"><a href="files/models-base-hourquery.html"><abbr title="Models/Base/HourQuery.php">HourQuery.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">594</span>
+    <span class="phpdocumentor-element-found-in__line">592</span>
 
     </aside>
 
@@ -1305,9 +1305,9 @@ Use associative array('min' =&gt; $minValue, 'max' =&gt; $maxValue) for interval
 
         <section class="phpdocumentor-description"><p>Example usage:
 <code class="prettyprint">
-$query-&gt;filterByDayOfWeek('2011-03-14'); // WHERE day_of_week = '2011-03-14'
-$query-&gt;filterByDayOfWeek('now'); // WHERE day_of_week = '2011-03-14'
-$query-&gt;filterByDayOfWeek(array('max' =&gt; 'yesterday')); // WHERE day_of_week &gt; '2011-03-13'
+$query-&gt;filterByDayOfWeek(1234); // WHERE day_of_week = 1234
+$query-&gt;filterByDayOfWeek(array(12, 34)); // WHERE day_of_week IN (12, 34)
+$query-&gt;filterByDayOfWeek(array('min' =&gt; 12)); // WHERE day_of_week &gt; 12
 </code></p>
 </section>
 
@@ -1319,8 +1319,6 @@ $query-&gt;filterByDayOfWeek(array('max' =&gt; 'yesterday')); // WHERE day_of_we
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to use as filter.
-Values can be integers (unix timestamps), DateTime objects, or strings.
-Empty strings are treated as NULL.
 Use scalar values for equality.
 Use array values for in_array() equivalent.
 Use associative array('min' =&gt; $minValue, 'max' =&gt; $maxValue) for intervals.</p>
@@ -1361,7 +1359,7 @@ Use associative array('min' =&gt; $minValue, 'max' =&gt; $maxValue) for interval
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/HourQuery.php"><a href="files/models-base-hourquery.html"><abbr title="Models/Base/HourQuery.php">HourQuery.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">627</span>
+    <span class="phpdocumentor-element-found-in__line">625</span>
 
     </aside>
 
@@ -2005,7 +2003,7 @@ Use associative array('min' =&gt; $minValue, 'max' =&gt; $maxValue) for interval
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">findByDayOfWeek</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$day_of_week</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href=""><abbr title=""></abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">findByDayOfWeek</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$day_of_week</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href=""><abbr title=""></abbr></a></span></code>
 
         <section class="phpdocumentor-description"><p>Return ChildHour objects filtered by the day_of_week column</p>
 </section>
@@ -2014,7 +2012,7 @@ Use associative array('min' =&gt; $minValue, 'max' =&gt; $maxValue) for interval
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$day_of_week</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -2410,7 +2408,7 @@ Use associative array('min' =&gt; $minValue, 'max' =&gt; $maxValue) for interval
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">findOneByDayOfWeek</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$day_of_week</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href=""><abbr title=""></abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">findOneByDayOfWeek</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$day_of_week</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href=""><abbr title=""></abbr></a></span></code>
 
         <section class="phpdocumentor-description"><p>Return the first ChildHour filtered by the day_of_week column *</p>
 </section>
@@ -2419,7 +2417,7 @@ Use associative array('min' =&gt; $minValue, 'max' =&gt; $maxValue) for interval
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$day_of_week</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -3280,7 +3278,7 @@ $objs = $c-&gt;findPks(array(12, 56, 832), $con);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/HourQuery.php"><a href="files/models-base-hourquery.html"><abbr title="Models/Base/HourQuery.php">HourQuery.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">652</span>
+    <span class="phpdocumentor-element-found-in__line">650</span>
 
     </aside>
 
@@ -3971,7 +3969,7 @@ $objs = $c-&gt;findPks(array(12, 56, 832), $con);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/HourQuery.php"><a href="files/models-base-hourquery.html"><abbr title="Models/Base/HourQuery.php">HourQuery.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">756</span>
+    <span class="phpdocumentor-element-found-in__line">754</span>
 
     </aside>
 
@@ -4160,7 +4158,7 @@ $objs = $c-&gt;findPks(array(12, 56, 832), $con);
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">requireOneByDayOfWeek</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$day_of_week</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href=""><abbr title=""></abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">requireOneByDayOfWeek</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$day_of_week</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href=""><abbr title=""></abbr></a></span></code>
 
         <section class="phpdocumentor-description"><p>Return the first ChildHour filtered by the day_of_week column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found</p>
 </section>
@@ -4169,7 +4167,7 @@ $objs = $c-&gt;findPks(array(12, 56, 832), $con);
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$day_of_week</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -4645,7 +4643,7 @@ $objs = $c-&gt;findPks(array(12, 56, 832), $con);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/HourQuery.php"><a href="files/models-base-hourquery.html"><abbr title="Models/Base/HourQuery.php">HourQuery.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">730</span>
+    <span class="phpdocumentor-element-found-in__line">728</span>
 
     </aside>
 
@@ -4724,7 +4722,7 @@ $objs = $c-&gt;findPks(array(12, 56, 832), $con);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/HourQuery.php"><a href="files/models-base-hourquery.html"><abbr title="Models/Base/HourQuery.php">HourQuery.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">745</span>
+    <span class="phpdocumentor-element-found-in__line">743</span>
 
     </aside>
 
@@ -4794,7 +4792,7 @@ $objs = $c-&gt;findPks(array(12, 56, 832), $con);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/HourQuery.php"><a href="files/models-base-hourquery.html"><abbr title="Models/Base/HourQuery.php">HourQuery.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">687</span>
+    <span class="phpdocumentor-element-found-in__line">685</span>
 
     </aside>
 
@@ -4865,7 +4863,7 @@ to be used as main alias in the secondary query</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="Models/Base/HourQuery.php"><a href="files/models-base-hourquery.html"><abbr title="Models/Base/HourQuery.php">HourQuery.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">705</span>
+    <span class="phpdocumentor-element-found-in__line">703</span>
 
     </aside>
 
