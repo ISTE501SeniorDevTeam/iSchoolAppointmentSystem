@@ -1,0 +1,113 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  height: 100vh;
+  position: relative;
+}
+
+.OrangeSection {
+  top: 0rem;
+  left: 0rem;
+  width: 20rem;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(247, 105, 2, 1);
+  flex-direction: column;
+  display: flex;
+}
+
+.BlackSection {
+  top: 12.125rem;
+  left: 0.625rem;
+  width: 19.375rem;
+  height: 5.625rem;
+  position: absolute;
+  background-color: rgba(33, 37, 25, 1);
+  flex-direction: column;
+  display: flex;
+}
+
+.WelcomeText {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 400;
+  font-weight: bold;
+  line-height: 1.3125rem;
+  color: rgba(255, 255, 255, 1);
+  height: 36px;
+  width: 5rem;
+  font-size: 1.125rem;
+  margin-top: 2.125rem;
+  margin-left: 2.1875rem;
+}
+
+.AdvisorText {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.75rem;
+  color: rgba(255, 255, 255, 1);
+  height: 2.875rem;
+  width: 11.25rem;
+  font-size: 1.5rem;
+  margin-left: 2.1875rem;
+  margin-top: 0.9375rem;
+}
+
+.CurrentQueueText {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 700;
+  font-weight: bold;
+  line-height: 1.75rem;
+  color: rgba(255, 255, 255, 1);
+  height: 1.875rem;
+  width: 10.625rem;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 1.875rem;
+  margin-left: 1.4375rem;
+}
+
+.TechnicalSupportLink {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  height: 0.9375rem;
+  width: 9.8125rem;
+  font-size: 1.125rem;
+  margin-top: 1.9375rem;
+  margin-left: 2.0625rem;
+  position: absolute;
+  top: 80vh;
+}
+
+.SignOutLink {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  height: 1.3125rem;
+  width: 7.9375rem;
+  font-size: 1.125rem;
+  margin-top: 1.9375rem;
+  margin-left: 2.0625rem;
+  position: absolute;
+  top: 85vh;
+}
+
+.RITLogoContainer {
+  position: absolute;
+  top: 90vh;
+  /* left: 21px; */
+}
+
+.RITLogo {
+  width: 17.375rem;
+  height: 100%;
+  margin-top: 1.9375rem;
+  margin-left: 1.5625rem;
+  object-fit: contain;
+}

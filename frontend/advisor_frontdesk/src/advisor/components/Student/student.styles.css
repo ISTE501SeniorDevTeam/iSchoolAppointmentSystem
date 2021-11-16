@@ -1,0 +1,31 @@
+.StudentNameButtonContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  top: 65px;
+  width: 320px;
+  height: 55px;
+  align-items: center;
+  background-color: rgba(33, 37, 25, 1);
+  border-width: none;
+  border-style: none;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  color: #ffffff;
+  padding-left: 15px;
+}
+
+.StudentNameButtonContainer:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #293846;
+}
+
+.active {
+  cursor: pointer;
+  color: #000;
+  background-color: #ffffff;
+}

@@ -1,0 +1,228 @@
+.StudentInfoPageContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.StudentInfoContainer {
+  width: 1280px;
+  height: 100vh;
+  position: absolute;
+}
+
+/* .StudentInfoPage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 1280;
+} */
+
+.StudentInfoNameContainer {
+  top: 65px;
+  left: 120px;
+  width: 450px;
+  height: 50px;
+  position: absolute;
+  background-color: rgba(247, 105, 2, 1);
+  flex-direction: column;
+  display: flex;
+}
+
+.StudentNameText {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  height: 40px;
+  /* width: 210px; */
+  text-align: center;
+  font-size: 36px;
+  margin-top: 5px;
+  /* margin-left: 55px; */
+}
+
+.StudentMajorText {
+  font-family: Helvetica;
+  top: 145px;
+  left: 189px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 30px;
+  width: 300px;
+}
+
+.StudentEmailText {
+  font-family: Helvetica;
+  top: 205px;
+  left: 189px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(247, 105, 2, 1);
+  height: 30px;
+  width: 300px;
+}
+
+.StudentUIDText {
+  font-family: Helvetica;
+  top: 260px;
+  left: 189px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(247, 105, 2, 1);
+  height: 30px;
+  width: 300px;
+}
+
+.UsualAdvisorContainer {
+  top: 400px;
+  left: 77px;
+  width: 220px;
+  height: 55px;
+  position: absolute;
+  background-color: rgba(247, 105, 2, 1);
+  flex-direction: column;
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.UsualAdvisorText {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  height: 30px;
+  width: 180px;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 13px;
+  margin-left: 22px;
+}
+
+.VariableUsualAdvisor {
+  font-family: Helvetica;
+  top: 485px;
+  left: 135px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 20px;
+  width: 120px;
+  font-size: 18px;
+}
+
+.StudentModalityContainer {
+  top: 400px;
+  left: 500px;
+  width: 220px;
+  height: 55px;
+  position: absolute;
+  background-color: rgba(247, 105, 2, 1);
+  flex-direction: column;
+  display: flex;
+}
+
+.StudentModalityText {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  height: 30px;
+  width: 180px;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 13px;
+  margin-left: 20px;
+}
+
+.VariableModality {
+  font-family: Helvetica;
+  top: 485px;
+  left: 520px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 20px;
+  width: 120px;
+  font-size: 18px;
+}
+
+.StudentReasonForVisitContainer {
+  top: 400px;
+  left: 905px;
+  width: 220px;
+  height: 55px;
+  position: absolute;
+  background-color: rgba(247, 105, 2, 1);
+  flex-direction: column;
+  display: flex;
+}
+
+.StudentReasonForVisitText {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  height: 30px;
+  width: 180px;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 13px;
+  margin-left: 20px;
+}
+
+.VariableReasonForVisit {
+  font-family: Helvetica;
+  top: 485px;
+  left: 925px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  height: 20px;
+  width: 225px;
+  font-size: 18px;
+}
+
+.StartMeetingContainer {
+  top: 85vh;
+  left: 460px;
+  width: 355px;
+  height: 85px;
+  position: absolute;
+  background-color: rgba(247, 105, 2, 1);
+  /* flex-direction: column;
+  display: flex; */
+}
+
+.StartMeetingContainer:hover {
+  cursor: pointer;
+  background-color: rgba(33, 37, 25, 1);
+}
+
+.StartMeetingText {
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  height: 55px;
+  text-align: center;
+  font-size: 48px;
+  margin-top: 15px;
+}
+
+.LeftCut {
+  position: "absolute";
+  top: 40px;
+  left: -20px;
+  height: 90px;
+  width: 40px;
+  transform: rotate(45deg);
+  background-color: white;
+}
