@@ -1,11 +1,78 @@
 <?php
-/** @author Vladimir Martynenko */
+/**
+ * @author Vladimir Martynenko
+ *
+ * Methods related to Queues
+ * 
+ * Requests for '/queue' endpoint:  
+ * 
+ * GET '/' - Get all queues  
+ *
+ * Returns JSON array containing queue objects  
+ * 
+ * GET '/{:advisorId}' - get a queue for {:advisorId}
+ * 
+ * Returns JSON containing:  
+ * - advisorId,  
+ * - AdvisorName,  
+ * - pictureUrl,
+ * - EstimatedWaitTime,
+ * - queue - array of students in queue. Each line contains 'id', 'name', and 'position'
+ *
+ * POST '/movetoposition' - move student into new position  
+ * Body parameters:  
+ * - position - new position,  
+ * - studentId - studentId,  
+ * - advisorId - advisorId  
+ * 
+ * Returns JSON with update queue  
+ * 
+ * POST '/invite' - Invite student to adviser  
+ * Body parameters:   
+ * - advisorId - advisorId  
+ * 
+ * Returns updated JSON queue  
+ * 
+ * POST '/complete' - complete the visit  
+ * Body parameters:  
+ * - advisorId - advisorId  
+ * 
+ * Returns updated JSON queue  
+ * 
+ * POST '/cancel' - cancels the visit without seeing advisor  
+ * Body parameters:  
+ * - studentId - studentId  
+ * 
+ * Returns update JSON queue  
+ * 
+ * POST '/enqueue' - put new student in the queue  
+ * - advisorId - advisorId,  
+ * - studentId - studentId,   
+ * - reasonId - reasonId,  
+ * - modalityId - modalityId,  
+ * - customReason - (optional) custom reason
+ * 
+ * Returns JSON array containing all queues 
+ */
+
+  use Propel\Runtime\Exception\PropelException;
 
   const TIMEZONE = "America/New_York";
   const POSITION_NOT_NULL = "Visit.Position IS NOT NULL";
   const NO_ADVISOR_ID = "Missing an id of a advisor";
 
-  function makeQueueObject($advisor, $visits){
+  /**
+   * Make a single queue PHP object
+   * @param Employee $advisor - advisor for whom the queue is 
+   * @param object $visits - visits belonging in this queue
+   * @return object - a PHP object containing fields:  
+   * - advisorId - AdvisorId (QueueId)  
+   * - advisorName - Name of the advisor
+   * - pictureUrl - url of the image of the advisor (if given)  
+   * - EstimatedEWaitTime - estimated wait time for this queue
+   * - queue - contains array students in the queue 
+   */
+  function makeQueueObject(Employee $advisor, object $visits): object {
     $result = (object)['advisorId' => $advisor->getUid()];
     $result->advisorName = $advisor->getName();
     $result->pictureUrl = $advisor->getPictureUrl();
@@ -28,7 +95,16 @@
     return $result;
   } // makeQueueObject
 
-  function invite($advisorId){
+  /**
+   * Moves the next student in the position 0 in the queue. 
+   * Also updates invited_at time for this visit.
+   * @param string $advisorId - queueId (advisorId)
+   * @return object - returns updated queue fo an advisor
+   * @throws PropelException
+   * @throws Exception
+   */
+  function invite(string $advisorId): object
+  {
     $advisor = EmployeeQuery::create()->findOneByUid($advisorId);
     if(!$advisor){
       returnUserError("$advisorId is not a valid advisor id if an active queue.");
@@ -55,7 +131,14 @@
     return makeQueueObject($advisor, $visits);
   } // invite
 
-  function complete($advisorId){
+  /**
+   * Completes the visit for the student who is currently at the advisors
+   * removes the student from the queue and updates complete_at time for this visit
+   * @param string $advisorId - queueId (advisorId)
+   * @return object - updated queue
+   * @throws PropelException
+   */
+  function complete(string $advisorId):object {
     $advisor = EmployeeQuery::create()->findOneByUid($advisorId);
     if(!$advisor){
       returnUserError("$advisorId is not a valid advisor id if an active queue.");
@@ -80,7 +163,13 @@
     return makeQueueObject($advisor, $visits);
   } // complete
 
-  function cancel($studentId){
+  /**
+   * Removes the student form the queue and updates completed_at timestamp for this visit.
+   * @param string $studentId - studentId
+   * @return object - updated queue
+   * @throws PropelException
+   */
+  function cancel(string $studentId): object {
     $visit = VisitQuery::create()->where(POSITION_NOT_NULL)
                                  ->findOneByStudentId($studentId);
     if(!isset($visit)){
@@ -89,7 +178,7 @@
     $advisorId = $visit->getAdvisorId();
     $advisor = EmployeeQuery::create()->findOneByUid($advisorId);
     if (!isset($advisor)){
-      sendServerError("Failed to find advisor with id $advisorId");
+      returnServerError("Failed to find advisor with id $advisorId");
     }
     $position = $visit->getPosition();
     $visits = VisitQuery::create()->where(POSITION_NOT_NULL)
@@ -109,7 +198,18 @@
     return makeQueueObject($advisor, $visits);
   } // cancel
 
-  function moveToPosition($position, $studentId, $queueId) {
+  /**
+   * Moves student to the new position in the queue
+   * @param int $position - new position
+   * @param string $studentId - studentId
+   * @param string $queueId - queueId (advisorId)
+   * @return object - updated queue
+   * @throws PropelException
+   */
+  function moveToPosition(int $position,
+                          string$studentId,
+                          string $queueId): object
+  {
     if($position < 0){
       returnUserError("Position must be a positive number or 0");
     }
@@ -162,8 +262,22 @@
     return makeQueueObject($advisor, $visits);
   } // moveToPosition
 
-  // TODO Finish up
-  function enqueue($advisorId, $studentId, $modalityId, $reasonId, $customReason){
+  /**
+   * Put student in the queue
+   * @param string $advisorId - advisorId (queueId)
+   * @param string $studentId - studentId
+   * @param int $modalityId - modalityId from the modality table
+   * @param int $reasonId - reasonId from the reason table
+   * @param string|null $customReason - (optional) custom reason
+   * @return array - array containing all queues
+   * @throws PropelException
+   */
+  function enqueue(string $advisorId,
+                   string $studentId,
+                   int $modalityId,
+                   int $reasonId,
+                   string $customReason = null): array
+  {
     $advisor = EmployeeQuery::create()->
       where('Employee.is_grad_advisor IS NOT NULL')->
       findOneByUid($advisorId);
@@ -206,7 +320,12 @@
     return getAllQueues();
   } // enqueue
 
-  function checkCurrentAdvisor($advisorId){
+  /**
+   * Check if adviser is scheduled to accept walkins
+   * @param string $advisorId - advisorId
+   * @return bool
+   */
+  function checkCurrentAdvisor(string $advisorId): bool {
     $now = date("Y-m-d H:i:s");
     $hour = WalkinHourQuery::create()->
         filterByAdvisorId($advisorId)->
@@ -214,11 +333,15 @@
         filterByEndsAt(array('min' => $now))->
         findOne();
     return $hour !== null;
-    // var_dump($hour);
   } // checkCurrentAdvisor
 
-  // queueId is a uid of advisor
-  function getQueue($queueId) {
+  // queueId is an uid of advisor
+  /**
+   * Get a single queue by id
+   * @param string $queueId - queueId (advisorId)
+   * @return object - PHP object containing queue
+   */
+  function getQueue(string $queueId): object {
     $advisor = EmployeeQuery::create()->findOneByUid($queueId);
     $advisorRole = RoleQuery::create()->findOneByName("Advisor");
     if(!$advisor || $advisor->getRoleId() !== $advisorRole->getId()){
@@ -242,7 +365,11 @@
     return $result;
   } // sortQueue
 
-  function getAllQueues() {
+  /** Get all queues
+   * @return array - contains all queues
+   * @throws PropelException
+   */
+  function getAllQueues(): array {
     $advisorIds = VisitQuery::create()->
       where(POSITION_NOT_NULL)->
       groupByAdvisorId()->
@@ -308,7 +435,12 @@
   //   return($queues);
   // } // getAllQueues
 
-  function processGetRoute($pathComponents, $requestParameters){
+  /**
+   * Dispatch GET requests
+   * @param array $pathComponents - Url path components
+   * @throws PropelException
+   */
+  function processGetRoute(array $pathComponents): void {
     $queueId = array_shift($pathComponents);
     if (!$queueId) {
       returnResponse(getAllQueues());
@@ -316,7 +448,12 @@
     returnResponse(getQueue($queueId));
   }
 
-  function processPostRoute($operation, $pathComponents, $requestParameters){
+  /**
+   * Dispatch POST requests
+   * @param string $operation - name of operation requested
+   * @throws PropelException
+   */
+  function processPostRoute(string $operation): void {
     switch ($operation) {
       case 'movetoposition':
         if (!isset($_POST['position'])){
@@ -361,7 +498,7 @@
         if (!isset($_POST['modalityId'])){
           returnUserError("Missing modalityId");
         }
-        $customReason = isset($_POST['customReason'])? $_POST['customReason'] : null;
+        $customReason = $_POST['customReason'] ?? null;
         returnResponse(enqueue(
           $_POST['advisorId'],
           $_POST['studentId'],

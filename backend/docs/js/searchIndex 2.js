@@ -196,24 +196,29 @@ Search.appendIndex(
             "summary": "Delete\u0020a\u0020record\u0020for\u0020hour",
             "url": "namespaces/default.html#function_deleteHour"
         },                {
+            "fqsen": "\\INDEX",
+            "name": "INDEX",
+            "summary": "",
+            "url": "namespaces/default.html#constant_INDEX"
+        },                {
             "fqsen": "\\returnImage\u0028\u0029",
             "name": "returnImage",
-            "summary": "Retrieves\u0020an\u0020image\u0020from\u0020the\u0020database",
+            "summary": "",
             "url": "namespaces/default.html#function_returnImage"
         },                {
             "fqsen": "\\createImage\u0028\u0029",
             "name": "createImage",
-            "summary": "Creates\u0020a\u0020new\u0020image\u0020in\u0020the\u0020database",
+            "summary": "",
             "url": "namespaces/default.html#function_createImage"
         },                {
             "fqsen": "\\updateImage\u0028\u0029",
             "name": "updateImage",
-            "summary": "Replaces\u0020content\u0020of\u0020an\u0020images\u0020with\u0020newly\u0020submitted\u0020files",
+            "summary": "",
             "url": "namespaces/default.html#function_updateImage"
         },                {
             "fqsen": "\\deleteImage\u0028\u0029",
             "name": "deleteImage",
-            "summary": "Delete\u0020an\u0020image\u0020from\u0020the\u0020database",
+            "summary": "",
             "url": "namespaces/default.html#function_deleteImage"
         },                {
             "fqsen": "\\POSITION_NOT_NULL",
@@ -228,42 +233,42 @@ Search.appendIndex(
         },                {
             "fqsen": "\\makeQueueObject\u0028\u0029",
             "name": "makeQueueObject",
-            "summary": "Make\u0020a\u0020single\u0020queue\u0020PHP\u0020object",
+            "summary": "",
             "url": "namespaces/default.html#function_makeQueueObject"
         },                {
             "fqsen": "\\invite\u0028\u0029",
             "name": "invite",
-            "summary": "Moves\u0020the\u0020next\u0020student\u0020in\u0020the\u0020position\u00200\u0020in\u0020the\u0020queue.",
+            "summary": "",
             "url": "namespaces/default.html#function_invite"
         },                {
             "fqsen": "\\complete\u0028\u0029",
             "name": "complete",
-            "summary": "Completes\u0020the\u0020visit\u0020for\u0020the\u0020student\u0020who\u0020is\u0020currently\u0020at\u0020the\u0020advisors\nremoves\u0020the\u0020student\u0020from\u0020the\u0020queue\u0020and\u0020updates\u0020complete_at\u0020time\u0020for\u0020this\u0020visit",
+            "summary": "",
             "url": "namespaces/default.html#function_complete"
         },                {
             "fqsen": "\\cancel\u0028\u0029",
             "name": "cancel",
-            "summary": "Removes\u0020the\u0020student\u0020form\u0020the\u0020queue\u0020and\u0020updates\u0020completed_at\u0020timestamp\u0020for\u0020this\u0020visit.",
+            "summary": "",
             "url": "namespaces/default.html#function_cancel"
         },                {
             "fqsen": "\\moveToPosition\u0028\u0029",
             "name": "moveToPosition",
-            "summary": "Moves\u0020student\u0020to\u0020the\u0020new\u0020position\u0020in\u0020the\u0020queue",
+            "summary": "",
             "url": "namespaces/default.html#function_moveToPosition"
         },                {
             "fqsen": "\\enqueue\u0028\u0029",
             "name": "enqueue",
-            "summary": "Put\u0020student\u0020in\u0020the\u0020queue",
+            "summary": "",
             "url": "namespaces/default.html#function_enqueue"
         },                {
             "fqsen": "\\checkCurrentAdvisor\u0028\u0029",
             "name": "checkCurrentAdvisor",
-            "summary": "Check\u0020if\u0020adviser\u0020is\u0020scheduled\u0020to\u0020accept\u0020walkins",
+            "summary": "",
             "url": "namespaces/default.html#function_checkCurrentAdvisor"
         },                {
             "fqsen": "\\getQueue\u0028\u0029",
             "name": "getQueue",
-            "summary": "Get\u0020a\u0020single\u0020queue\u0020by\u0020id",
+            "summary": "",
             "url": "namespaces/default.html#function_getQueue"
         },                {
             "fqsen": "\\sortQueue\u0028\u0029",
@@ -273,33 +278,28 @@ Search.appendIndex(
         },                {
             "fqsen": "\\getAllQueues\u0028\u0029",
             "name": "getAllQueues",
-            "summary": "Get\u0020all\u0020queues",
+            "summary": "",
             "url": "namespaces/default.html#function_getAllQueues"
         },                {
             "fqsen": "\\getReasonById\u0028\u0029",
             "name": "getReasonById",
-            "summary": "Get\u0020reason\u0020record\u0020by\u0020reason\u0020id",
+            "summary": "",
             "url": "namespaces/default.html#function_getReasonById"
         },                {
             "fqsen": "\\getAllReasons\u0028\u0029",
             "name": "getAllReasons",
-            "summary": "Return\u0020all\u0020record\u0020from\u0020reason\u0020table",
+            "summary": "",
             "url": "namespaces/default.html#function_getAllReasons"
         },                {
             "fqsen": "\\getReasonsByGrad\u0028\u0029",
             "name": "getReasonsByGrad",
-            "summary": "Get\u0020all\u0020grad\u0020or\u0020all\u0020undergrad\u0020reasons",
+            "summary": "",
             "url": "namespaces/default.html#function_getReasonsByGrad"
         },                {
-            "fqsen": "\\getRole\u0028\u0029",
-            "name": "getRole",
-            "summary": "Get\u0020role\u0020record\u0020using\u0020ether\u0020roleId\u0020or\u0020roleName",
-            "url": "namespaces/default.html#function_getRole"
-        },                {
-            "fqsen": "\\sendAllStats\u0028\u0029",
-            "name": "sendAllStats",
-            "summary": "Returns\u0020a\u0020CSV\u0020file\u0020containing\u0020all\u0020visits",
-            "url": "namespaces/default.html#function_sendAllStats"
+            "fqsen": "\\sendAll\u0028\u0029",
+            "name": "sendAll",
+            "summary": "",
+            "url": "namespaces/default.html#function_sendAll"
         },                {
             "fqsen": "\\STUDENT_NOT_FOUND",
             "name": "STUDENT_NOT_FOUND",
@@ -308,12 +308,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\getByRitid\u0028\u0029",
             "name": "getByRitid",
-            "summary": "Get\u0020students\u0020record\u0020by\u0020RitId",
+            "summary": "",
             "url": "namespaces/default.html#function_getByRitid"
         },                {
             "fqsen": "\\getByUid\u0028\u0029",
             "name": "getByUid",
-            "summary": "Return\u0020student\u0020record\u0020from\u0020the\u0020student\u0020table\u0020of\u0020the\u0020database",
+            "summary": "",
             "url": "namespaces/default.html#function_getByUid"
         },                {
             "fqsen": "\\inBetween\u0028\u0029",
@@ -323,22 +323,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\getAdvisorForStudent\u0028\u0029",
             "name": "getAdvisorForStudent",
-            "summary": "Get\u0020default\u0020advisor\u0020for\u0020a\u0020given\u0020student",
+            "summary": "",
             "url": "namespaces/default.html#function_getAdvisorForStudent"
         },                {
             "fqsen": "\\makeStudentJson\u0028\u0029",
             "name": "makeStudentJson",
-            "summary": "Convert\u0020propel\u0020student\u0020object\u0020to\u0020PHP\u0020object",
+            "summary": "",
             "url": "namespaces/default.html#function_makeStudentJson"
         },                {
             "fqsen": "\\updateMajor\u0028\u0029",
             "name": "updateMajor",
-            "summary": "Update\u0020student\u0027s\u0020major",
+            "summary": "",
             "url": "namespaces/default.html#function_updateMajor"
         },                {
             "fqsen": "\\updateadvisor\u0028\u0029",
             "name": "updateadvisor",
-            "summary": "Override\u0020the\u0020advisor\u0020for\u0020the\u0020student",
+            "summary": "",
             "url": "namespaces/default.html#function_updateadvisor"
         },                {
             "fqsen": "\\LOGIN_FAILED",
@@ -383,7 +383,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\newUser\u0028\u0029",
             "name": "newUser",
-            "summary": "Creates\u0020a\u0020new\u0020record\u0020in\u0020employee\u0020table.",
+            "summary": "",
             "url": "namespaces/default.html#function_newUser"
         },                {
             "fqsen": "\\",

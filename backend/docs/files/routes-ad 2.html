@@ -93,39 +93,6 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
                                                  <section class="phpdocumentor-description"><p>Vladimir Martynenko</p>
-<p>Methods related to the ad table</p>
-<p>Requests for '/ad' endpoint:</p>
-<p>GET '/{:adId} - get a single ad record<br />
-Returns a JSON with following fields:</p>
-<ul>
-<li>Id - a UUIDv4 if a record,</li>
-<li>Url - a Url of the file to display (maybe from and image endpoint),</li>
-<li>StartsTa - (optional) a timestamp of when to start ad rotation,</li>
-<li>EndsAt - (optional) a timestamp of when to stop ad rotation</li>
-</ul>
-<p>GET '/' - get all ad records from the database<br />
-Returns a JSON array containing records in format above</p>
-<p>GET '/current' - get all ad records currently scheduled for rotation<br />
-Returns a JSON array containing records in format above.</p>
-<p>POST '/create' - create a new ad record in the database<br />
-Body parameters:</p>
-<ul>
-<li>url - Url of a file to display,</li>
-<li>starts_at - (optional) a timestamp of when to start rotation,</li>
-<li>ends_at - (optional) a timestamp of when to start ad rotation<br />
-If both starts_at and ends_at are present, starts_at must be earlier than ends_at<br />
-Returns a JSON containing the new record in the format above</li>
-</ul>
-<p>POST '/update/{:adId}' - update an ad record<br />
-Body parameters:</p>
-<ul>
-<li>url - (optional) an url of a file to display,</li>
-<li>starts_at - (optional) a timestamp of when to start rotation,</li>
-<li>ends_at - (optional) a timestamp of when to start ad rotation<br />
-Returns a JSON containing the updated record in the format above</li>
-</ul>
-<p>POST '/delete/{:adId}'<br />
-Returns a JSON containing number of records deleted.</p>
 </section>
 
                                     </dd>
@@ -252,7 +219,7 @@ Returns a JSON containing number of records deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/ad.php"><a href="files/routes-ad.html"><abbr title="routes/ad.php">ad.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">6</span>
 
     </aside>
 
@@ -281,7 +248,7 @@ Returns a JSON containing number of records deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/ad.php"><a href="files/routes-ad.html"><abbr title="routes/ad.php">ad.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">7</span>
 
     </aside>
 
@@ -316,7 +283,7 @@ Returns a JSON containing number of records deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/ad.php"><a href="files/routes-ad.html"><abbr title="routes/ad.php">ad.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
@@ -368,7 +335,7 @@ Returns a JSON containing number of records deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/ad.php"><a href="files/routes-ad.html"><abbr title="routes/ad.php">ad.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">67</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
@@ -424,7 +391,7 @@ Returns a JSON containing number of records deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/ad.php"><a href="files/routes-ad.html"><abbr title="routes/ad.php">ad.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">79</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
@@ -468,7 +435,7 @@ Returns a JSON containing number of records deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/ad.php"><a href="files/routes-ad.html"><abbr title="routes/ad.php">ad.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -512,7 +479,7 @@ Returns a JSON containing number of records deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/ad.php"><a href="files/routes-ad.html"><abbr title="routes/ad.php">ad.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
@@ -556,7 +523,7 @@ Returns a JSON containing number of records deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/ad.php"><a href="files/routes-ad.html"><abbr title="routes/ad.php">ad.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">152</span>
+    <span class="phpdocumentor-element-found-in__line">115</span>
 
     </aside>
 
@@ -596,7 +563,7 @@ Returns a JSON containing number of records deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/ad.php"><a href="files/routes-ad.html"><abbr title="routes/ad.php">ad.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">170</span>
+    <span class="phpdocumentor-element-found-in__line">133</span>
 
     </aside>
 
@@ -636,7 +603,7 @@ Returns a JSON containing number of records deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/ad.php"><a href="files/routes-ad.html"><abbr title="routes/ad.php">ad.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">191</span>
+    <span class="phpdocumentor-element-found-in__line">154</span>
 
     </aside>
 
@@ -692,7 +659,7 @@ Returns a JSON containing number of records deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/ad.php"><a href="files/routes-ad.html"><abbr title="routes/ad.php">ad.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">215</span>
+    <span class="phpdocumentor-element-found-in__line">178</span>
 
     </aside>
 
@@ -748,7 +715,7 @@ Returns a JSON containing number of records deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/ad.php"><a href="files/routes-ad.html"><abbr title="routes/ad.php">ad.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">229</span>
+    <span class="phpdocumentor-element-found-in__line">192</span>
 
     </aside>
 
@@ -802,7 +769,7 @@ Returns a JSON containing number of records deleted.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/ad.php"><a href="files/routes-ad.html"><abbr title="routes/ad.php">ad.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">246</span>
+    <span class="phpdocumentor-element-found-in__line">209</span>
 
     </aside>
 

@@ -1,13 +1,23 @@
 <?php
-/** @author Vladimir Martynenko */
+/**
+ * @author Vladimir Martynenko
+ *
+ * Methods related to statistics  
+ *
+ * Requests for '/stat' endpoint:   
+ * 
+ * GET '/' - Download all visits 
+ */
 
-  function getQueue($queueId) {
-    returnResponse((object)[]);
-  }
+  use Propel\Runtime\Exception\PropelException;
 
-  function sendAll(): array
+  /**
+   * Returns a CSV file containing all visits
+   * @return array
+   * @throws PropelException
+   */
+  function sendAllStats(): array
   {
-//    $result = [];
     $rows = VisitQuery::create()->
       select(['created_at', 'invited_at', 'complete_at', 'custom_reason'])->
       joinModality()->
@@ -27,35 +37,24 @@
     header('Content-Type: text/csv; charset=utf-8');
     header('Content-Length: ' . strlen($csv));
     die($csv);
+  }
 
-//    foreach($rows as $row){
-//      $result[] = (Object)$row;//->toArray();
+  /**
+   * Dispatch GET requests
+   * @param array $pathComponents - path components of the request Url
+   * @throws PropelException
+   */
+  function processGetRoute(array $pathComponents): void {
+//    $id = array_shift($pathComponents);
+//    if (!$id) {
+      sendAllStats();
 //    }
-    // var_dump($row);
-//    return $result;
+//    returnResponse(get($id));
   }
 
-  function processGetRoute($pathComponents, $requestParameters){
-    $id = array_shift($pathComponents);
-    if (!$id) {
-      sendAll();
-    }
-    returnResponse(get($id));
-  }
-
-  function processPostRoute($operation, $pathComponents, $requestParameters){
-    switch ($operation) {
-      case "create":
-        returnServerError("$operation NOT IMPLEMENTED");      
-        break;
-      case "update":
-        returnServerError("$operation NOT IMPLEMENTED");
-        break;
-      case "delete":
-        returnServerError("$operation NOT IMPLEMENTED");
-        break;
-      default:
-        returnUserError("$operation is not a supported operation for queue endpoint.");
-        break;
-    }
+  /**
+   * Inform user that there are no POST routes
+   */
+  function processPostRoute(): void{
+    returnUserError('Stat endpoint does not have any POST methods');
   }

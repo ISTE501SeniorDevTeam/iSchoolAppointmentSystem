@@ -1,5 +1,52 @@
 <?php
-/** @author Vladimir Martynenko */
+/** 
+ * @author Vladimir Martynenko  
+ * 
+ * Methods related to users (employees) of the system
+ * 
+ * Requests for '/user' endpoint:  
+ * 
+ * There are no GET paths under user endpoint  
+ * 
+ * POST /newUser - create a new user in the system.  
+ * Body parameters:
+ * - userId - (required) ritid in the form of xxx0000
+ * - name - (required) First and last name
+ * - role_id - (required) integer with role id from role table
+ * - password - (optional) clear text password for new user
+ * - picture_url - (optional) urls of the employee picture  
+ * <b>If the role is 'Advisor' following fields are required:</b>
+ * - is_grad_advisor - true if advisor is Grad advisor, false if undergrad
+ * - first_letter - first letter(s) of last names of students the advisor is serving
+ * - last_letter - last letter(s) of last names of students the advisor is serving
+ *
+ * Returns a JSON containing a new user record
+ * 
+ * POST /login login user to the system  
+ * Checks password provided by the user against the hash in the database for a given user id.  
+ * 
+ * Body parameters  
+ * - userId - user id provided by the person trying to log in  
+ * - password - password provided by the user  
+ * 
+ * Returns a JSON containing ether JWT on success or error message to the client.
+ * 
+ * POST /changepassword - change password using old password.  
+ * Body parameters:  
+ * - userId - Uid if the employee  
+ * - old_password - Old password in the clear text  
+ * - new_password - New password in the clear text  
+ * 
+ * Returns {'ChangePassword': 'success'} or error  
+ * 
+ * POST /resetpassword - reset password by admin (no old password)  
+ * Body parameters:  
+ * - userId - Uid of employee  
+ * - password - new password in the clear text  
+ * 
+ * Returns {'ChangePassword': 'success'} or error  
+ * 
+ */
 
   use Propel\Runtime\Exception\PropelException;
 
@@ -112,12 +159,13 @@
     }
   } //login
 
-/**
- * Change password for a given user with an old and a new passwords provided. To change users own password.
- * @param string $userId id of a user to change password of
- * @param string $oldPassword old password in clear text
- * @param string $newPassword new password in clear text
- */
+  /**
+   * Change password for a given user with an old and a new passwords provided. To change users own password.
+   * @param string $userId id of a user to change password of
+   * @param string $oldPassword old password in clear text
+   * @param string $newPassword new password in clear text
+   * @throws PropelException
+   */
   function changePassword(string $userId, string $oldPassword, string $newPassword): void{
     $user = EmployeeQuery::create()->findOneByUid($userId);
     if ($user === null){
@@ -135,11 +183,12 @@
     returnUserError(CHANGE_PASSWORD_FAILED);
   } // changePassword
 
-/**
- * Change password for a given user without old the password and only new passwords provided. To be used by admin.
- * @param string $userId Id of a user whose password is being changed
- * @param string $newPassword New password in clear text
- */
+  /**
+   * Change password for a given user without old the password and only new passwords provided. To be used by admin.
+   * @param string $userId Id of a user whose password is being changed
+   * @param string $newPassword New password in clear text
+   * @throws PropelException
+   */
   function resetPassword(string $userId, string $newPassword): void{
     $user = EmployeeQuery::create()->findOneByUid($userId);
     if ($user === null){
@@ -149,7 +198,24 @@
     $user->save();
     returnResponse((object)['ChangePassword' => 'success']);
   } // resetPassword
-  
+
+  /**
+   * Creates a new record in employee table.
+   * Body parameters:
+   * - userId - (required) ritid in the form of xxx0000   
+   * - name - (required) First and last name
+   * - role_id - (required) integer with role id from role table     
+   * - password - (optional) clear text password for new user
+   * - picture_url - (optional) urls of the employee picture
+   * <b>If the role is 'Advisor' following fields are required:</b>
+   * - is_grad_advisor - true if advisor is Grad advisor, false if undergrad     
+   * - first_letter - first letter(s) of last names of students the advisor is serving      
+   * - last_letter - last letter(s) of last names of students the advisor is serving
+   *
+   * Returns a JSON containing a new user record      
+   * 
+   * @throws PropelException
+   */
   function newUser(): void
   {
     $user = new Employee();

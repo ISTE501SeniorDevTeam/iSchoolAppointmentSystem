@@ -93,6 +93,47 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
                                                  <section class="phpdocumentor-description"><p>Vladimir Martynenko</p>
+<p>Methods related to users (employees) of the system</p>
+<p>Requests for '/user' endpoint:</p>
+<p>There are no GET paths under user endpoint</p>
+<p>POST /newUser - create a new user in the system.<br />
+Body parameters:</p>
+<ul>
+<li>userId - (required) ritid in the form of xxx0000</li>
+<li>name - (required) First and last name</li>
+<li>role_id - (required) integer with role id from role table</li>
+<li>password - (optional) clear text password for new user</li>
+<li>picture_url - (optional) urls of the employee picture<br />
+<b>If the role is 'Advisor' following fields are required:</b>
+</li>
+<li>is_grad_advisor - true if advisor is Grad advisor, false if undergrad</li>
+<li>first_letter - first letter(s) of last names of students the advisor is serving</li>
+<li>last_letter - last letter(s) of last names of students the advisor is serving</li>
+</ul>
+<p>Returns a JSON containing a new user record</p>
+<p>POST /login login user to the system<br />
+Checks password provided by the user against the hash in the database for a given user id.</p>
+<p>Body parameters</p>
+<ul>
+<li>userId - user id provided by the person trying to log in</li>
+<li>password - password provided by the user</li>
+</ul>
+<p>Returns a JSON containing ether JWT on success or error message to the client.</p>
+<p>POST /changepassword - change password using old password.<br />
+Body parameters:</p>
+<ul>
+<li>userId - Uid if the employee</li>
+<li>old_password - Old password in the clear text</li>
+<li>new_password - New password in the clear text</li>
+</ul>
+<p>Returns {'ChangePassword': 'success'} or error</p>
+<p>POST /resetpassword - reset password by admin (no old password)<br />
+Body parameters:</p>
+<ul>
+<li>userId - Uid of employee</li>
+<li>password - new password in the clear text</li>
+</ul>
+<p>Returns {'ChangePassword': 'success'} or error</p>
 </section>
 
                                     </dd>
@@ -170,7 +211,7 @@
     <span>
                         &nbsp;: void    </span>
 </dt>
-<dd></dd>
+<dd>Creates a new record in employee table.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a href="namespaces/default.html#function_processGetRoute">processGetRoute()</a>
@@ -205,7 +246,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/user.php"><a href="files/routes-user.html"><abbr title="routes/user.php">user.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 
     </aside>
 
@@ -234,7 +275,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/user.php"><a href="files/routes-user.html"><abbr title="routes/user.php">user.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
@@ -263,7 +304,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/user.php"><a href="files/routes-user.html"><abbr title="routes/user.php">user.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">6</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -298,7 +339,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/user.php"><a href="files/routes-user.html"><abbr title="routes/user.php">user.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -354,7 +395,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/user.php"><a href="files/routes-user.html"><abbr title="routes/user.php">user.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
@@ -400,7 +441,7 @@ user_id: Uid of the user provided as a parameter of a function</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/user.php"><a href="files/routes-user.html"><abbr title="routes/user.php">user.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">81</span>
+    <span class="phpdocumentor-element-found-in__line">128</span>
 
     </aside>
 
@@ -465,7 +506,7 @@ user_id: Uid of the user provided as a parameter of a function</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/user.php"><a href="files/routes-user.html"><abbr title="routes/user.php">user.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">121</span>
+    <span class="phpdocumentor-element-found-in__line">169</span>
 
     </aside>
 
@@ -508,6 +549,20 @@ user_id: Uid of the user provided as a parameter of a function</p>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\PropelException">PropelException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">void</span>
@@ -523,7 +578,7 @@ user_id: Uid of the user provided as a parameter of a function</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/user.php"><a href="files/routes-user.html"><abbr title="routes/user.php">user.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">192</span>
 
     </aside>
 
@@ -557,6 +612,20 @@ user_id: Uid of the user provided as a parameter of a function</p>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\PropelException">PropelException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">void</span>
@@ -572,19 +641,48 @@ user_id: Uid of the user provided as a parameter of a function</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/user.php"><a href="files/routes-user.html"><abbr title="routes/user.php">user.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">153</span>
+    <span class="phpdocumentor-element-found-in__line">219</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Creates a new record in employee table.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
                 <span class="phpdocumentor-signature__name">newUser</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
-        <section class="phpdocumentor-description"></section>
+        <section class="phpdocumentor-description"><p>Body parameters:</p>
+<ul>
+<li>userId - (required) ritid in the form of xxx0000</li>
+<li>name - (required) First and last name</li>
+<li>role_id - (required) integer with role id from role table</li>
+<li>password - (optional) clear text password for new user</li>
+<li>picture_url - (optional) urls of the employee picture
+<b>If the role is 'Advisor' following fields are required:</b>
+</li>
+<li>is_grad_advisor - true if advisor is Grad advisor, false if undergrad</li>
+<li>first_letter - first letter(s) of last names of students the advisor is serving</li>
+<li>last_letter - last letter(s) of last names of students the advisor is serving</li>
+</ul>
+<p>Returns a JSON containing a new user record</p>
+</section>
 
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\PropelException">PropelException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">void</span>
@@ -600,7 +698,7 @@ user_id: Uid of the user provided as a parameter of a function</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/user.php"><a href="files/routes-user.html"><abbr title="routes/user.php">user.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">203</span>
+    <span class="phpdocumentor-element-found-in__line">269</span>
 
     </aside>
 
@@ -649,7 +747,7 @@ user_id: Uid of the user provided as a parameter of a function</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="routes/user.php"><a href="files/routes-user.html"><abbr title="routes/user.php">user.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">214</span>
+    <span class="phpdocumentor-element-found-in__line">280</span>
 
     </aside>
 

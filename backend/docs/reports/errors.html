@@ -80,9 +80,169 @@
 <div class="phpdocumentor-row">
     <h2 class="phpdocumentor-content__title">Errors</h2>
 
+        <h3>Table of Contents</h3>
+    <table class="phpdocumentor-table_of_contents">
+                                            <tr>
+                    <td class="phpdocumentor-cell"><a href="reports/errors.html#routes/hour.php">routes/hour.php</a></td>
+                    <td class="phpdocumentor-cell">1</td>
+                </tr>
+                                                            <tr>
+                    <td class="phpdocumentor-cell"><a href="reports/errors.html#routes/user.php">routes/user.php</a></td>
+                    <td class="phpdocumentor-cell">1</td>
+                </tr>
+                                    </table>
     
-            <div class="phpdocumentor-admonition phpdocumentor-admonition--success">No errors have been found in this project.</div>
     
+            <a id="routes/hour.php"></a>
+        <h3><abbr title="routes/hour.php">hour.php</abbr></h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="phpdocumentor-heading">Type</th>
+                    <th class="phpdocumentor-heading">Line</th>
+                    <th class="phpdocumentor-heading">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                            <tr>
+                    <td class="phpdocumentor-cell">ERROR</td>
+                    <td class="phpdocumentor-cell">0</td>
+                    <td class="phpdocumentor-cell">Tag &quot;author&quot; with body &quot;@author Vladimir Martynenko  
+
+Methods related to walk in hours scheduling
+
+Requests for &#039;/hour&#039; endpoint:  
+
+GET &#039;/&#039; - get all hours records in the table  
+
+Returns JSON array with all hour records in the table  
+
+GET &#039;/advisor/{:advisorId}&#039; - get all hour records for {:advisorId}  
+
+Returns JSON array containing records for requested advisor  
+
+GET &#039;/{:hourId}&#039; - get a single hour record by id  
+
+Returns JSON hour record with fields:  
+- Id - hour record id,  
+- AdvisorId - advisorId,  
+- Advisor - Advisor name,  
+- StartTime - start time of the period,  
+- EndTime - end time of the period,
+- Recurring - true / false,  
+&lt;b&gt;For recurring:&lt;/b&gt;  
+- StartRecurrence - date after which recurrence begins or null,  
+- EndRecurrence - date until which recurrence continues or null,
+- DayOfTheWeek - number of the day of the week for the period,  
+&lt;b&gt;For single day overrides:&lt;/b&gt;  
+- Date - a date on which this override takes place.  
+
+POST &#039;/createsingle/{:advisorId}&#039; - create a single day override  
+Body parameters:  
+- start_time - start time of the period,  
+- end_time - end time of the period,  
+- date - date for the override  
+
+Returns a JSON with newly created hour record
+
+POST &#039;/createrecurring/{:advisorId}&#039; - create a recurring hours record  
+Body parameters:
+- start_time - start time of the period,
+- end_time - end time of the period,
+- day_Of_week - day of the week,  
+- start_recurrence - (optional) start recurrence date,  
+- end_recurrence - (optional) end recurrence date  
+
+Returns JSON with newly created record
+
+POST &#039;/updatesingle/{:hourId}&#039; - update a single override record  
+Body parameters:
+- advisor_id - (optional) advisorId,  
+- start_time - (optional) start time,  
+- end_time - (optional) end time,  
+- date - (optional) date  
+
+Returns JSON with new event  
+
+POST &#039;/updaterecurring/{:hourId}&#039; - Update recurring hour record  
+Body parameters:
+- advisor_id - (optional) advisorId,
+- start_time - (optional) start time,
+- end_time - (optional) end time,
+- day_Of_week - (optional) day of the week,
+- start_recurrence - (optional) start recurrence date,
+- end_recurrence - (optional) end recurrence date  
+
+Returns updated JSON record
+
+POST &#039;/delete/{:hourId}&#039; - delete an hour record  
+
+Returns JSON with number of records deleted&quot; has error </td>
+                </tr>
+                        </tbody>
+        </table>
+            <a id="routes/user.php"></a>
+        <h3><abbr title="routes/user.php">user.php</abbr></h3>
+        <table>
+            <thead>
+                <tr>
+                    <th class="phpdocumentor-heading">Type</th>
+                    <th class="phpdocumentor-heading">Line</th>
+                    <th class="phpdocumentor-heading">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                            <tr>
+                    <td class="phpdocumentor-cell">ERROR</td>
+                    <td class="phpdocumentor-cell">0</td>
+                    <td class="phpdocumentor-cell">Tag &quot;author&quot; with body &quot;@author Vladimir Martynenko  
+
+Methods related to users (employees) of the system
+
+Requests for &#039;/user&#039; endpoint:  
+
+There are no GET paths under user endpoint  
+
+POST /newUser - create a new user in the system.  
+Body parameters:
+- userId - (required) ritid in the form of xxx0000
+- name - (required) First and last name
+- role_id - (required) integer with role id from role table
+- password - (optional) clear text password for new user
+- picture_url - (optional) urls of the employee picture  
+&lt;b&gt;If the role is &#039;Advisor&#039; following fields are required:&lt;/b&gt;
+- is_grad_advisor - true if advisor is Grad advisor, false if undergrad
+- first_letter - first letter(s) of last names of students the advisor is serving
+- last_letter - last letter(s) of last names of students the advisor is serving
+
+Returns a JSON containing a new user record
+
+POST /login login user to the system  
+Checks password provided by the user against the hash in the database for a given user id.  
+
+Body parameters  
+- userId - user id provided by the person trying to log in  
+- password - password provided by the user  
+
+Returns a JSON containing ether JWT on success or error message to the client.
+
+POST /changepassword - change password using old password.  
+Body parameters:  
+- userId - Uid if the employee  
+- old_password - Old password in the clear text  
+- new_password - New password in the clear text  
+
+Returns {&#039;ChangePassword&#039;: &#039;success&#039;} or error  
+
+POST /resetpassword - reset password by admin (no old password)  
+Body parameters:  
+- userId - Uid of employee  
+- password - new password in the clear text  
+
+Returns {&#039;ChangePassword&#039;: &#039;success&#039;} or error&quot; has error </td>
+                </tr>
+                        </tbody>
+        </table>
     </div>
                 <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
     <section class="phpdocumentor-search-results__dialog">

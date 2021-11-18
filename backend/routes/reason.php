@@ -1,7 +1,33 @@
 <?php
-/** @author Vladimir Martynenko */
+/**
+ * @author Vladimir Martynenko  
+ *
+ * Methods related to reason table
+ *  
+ * Requests for '/reason' endpoint:  
+ * 
+ * GET '/' - get all reason records in the database  
+ * 
+ * Returns array of PHP objects containing reason records  
+ * 
+ * GET '/{:reasonId}' - get a single reason record by {:reasonId}  
+ *  
+ * Returns PHP object containing fields:  
+ * - id - reasonId  
+ * - name - reason name  
+ * - isGrad - Grad or undergrad  
+ * 
+ * GET '/grad' or '/undergrad' - returns all grad or undergrad reasons  
+ * 
+ * Returns array of PHP objects containing reason records
+ */
 
-  function getReasonById($reasonId): object{
+  /**
+   * Get reason record by reason id
+   * @param string $reasonId - id of reason for visit
+   * @return object PHP object containing reason record
+   */
+  function getReasonById(string $reasonId): object{
     $reason = ReasonQuery::create()->findOneById($reasonId);
     if(!$reason) {
       returnUserError("Reason id not found");
@@ -12,7 +38,11 @@
       'isGrad' => $reason->getIsGrad()
     ]);
   } // getReason
-  
+
+  /**
+   * Return all record from reason table
+   * @return array
+   */
   function getAllReasons(): array{
     $reasons = ReasonQuery::create()->
         orderByIsGrad()->
@@ -32,7 +62,12 @@
     return $result;
   } // getAllReasons
 
-  function getReasonsByGrad($grad): array{
+  /**
+   * Get all grad or all undergrad reasons
+   * @param string $grad ether 'grad' or something else for undergrad
+   * @return array containing all grad ar all undergrad records
+   */
+  function getReasonsByGrad(string $grad): array{
     $reasons = ReasonQuery::create()->
       filterByIsGrad($grad === 'grad')->
       find();
@@ -50,7 +85,10 @@
     return $result;
   } // getReasonsByGrad
 
-  function processGetRoute($pathComponents){
+  /** 
+   * Dispatch GET requests 
+   */
+  function processGetRoute(array $pathComponents): void {
     $param = array_shift($pathComponents);
     if ($param === null) {
       returnResponse(getAllReasons());
@@ -64,19 +102,23 @@
     returnUserError("$param is not a supported parameter");
   }
 
-  function processPostRoute($operation){
-    switch ($operation) {
-      case "create":
-        returnServerError("$operation NOT IMPLEMENTED");      
-        break;
-      case "update":
-        returnServerError("$operation NOT IMPLEMENTED");
-        break;
-      case "delete":
-        returnServerError("$operation NOT IMPLEMENTED");
-        break;
-      default:
+  /**
+   * Dispatch POST requests
+   * @param string $operation name of operation requested
+   */
+  function processPostRoute(string $operation): void {
+//    switch ($operation) {
+//      case "create":
+//        returnServerError("$operation NOT IMPLEMENTED");      
+//        break;
+//      case "update":
+//        returnServerError("$operation NOT IMPLEMENTED");
+//        break;
+//      case "delete":
+//        returnServerError("$operation NOT IMPLEMENTED");
+//        break;
+//      default:
         returnUserError("$operation is not a supported operation for queue endpoint.");
-        break;
-    }
+//        break;
+//    }
   }

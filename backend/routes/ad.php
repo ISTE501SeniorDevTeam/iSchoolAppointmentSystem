@@ -1,5 +1,42 @@
 <?php
-/** @author Vladimir Martynenko */
+/** 
+ * @author Vladimir Martynenko
+ * 
+ * Methods related to the ad table
+ * 
+ * Requests for '/ad' endpoint:
+ * 
+ * GET '/{:adId} - get a single ad record  
+ * Returns a JSON with following fields:  
+ * - Id - a UUIDv4 if a record,  
+ * - Url - a Url of the file to display (maybe from and image endpoint),  
+ * - StartsTa - (optional) a timestamp of when to start ad rotation,  
+ * - EndsAt - (optional) a timestamp of when to stop ad rotation 
+ * 
+ * GET '/' - get all ad records from the database  
+ * Returns a JSON array containing records in format above  
+ * 
+ * GET '/current' - get all ad records currently scheduled for rotation  
+ * Returns a JSON array containing records in format above.
+ * 
+ * POST '/create' - create a new ad record in the database  
+ * Body parameters:
+ * - url - Url of a file to display,  
+ * - starts_at - (optional) a timestamp of when to start rotation,  
+ * - ends_at - (optional) a timestamp of when to start ad rotation  
+ * If both starts_at and ends_at are present, starts_at must be earlier than ends_at  
+ * Returns a JSON containing the new record in the format above  
+ * 
+ * POST '/update/{:adId}' - update an ad record  
+ * Body parameters:  
+ * - url - (optional) an url of a file to display,  
+ * - starts_at - (optional) a timestamp of when to start rotation,  
+ * - ends_at - (optional) a timestamp of when to start ad rotation  
+ * Returns a JSON containing the updated record in the format above  
+ * 
+ * POST '/delete/{:adId}'  
+ * Returns a JSON containing number of records deleted.  
+ */
 
   use Propel\Runtime\Exception\PropelException;
 
@@ -88,13 +125,13 @@ function getAd(String $adId): object {
     if($startsAt !== null){
       $startsAt = date_create($startsAt, $tz);
       if ($startsAt === null){
-        sendUserError('Failed to parse starts_at parameter');
+        returnUserError('Failed to parse starts_at parameter');
       }
     }
     if($endsAt !== null){
       $endsAt = date_create($endsAt, $tz);
       if ($endsAt === null){
-        sendUserError('Failed to parse ends_at parameter');
+        returnUserError('Failed to parse ends_at parameter');
       }
     }
     if($startsAt !== null && $endsAt !== null && $startsAt > $endsAt){
@@ -120,7 +157,7 @@ function getAd(String $adId): object {
       } else {
         $startsAt = date_create($startsAt, new DateTimeZone(TZ));
         if ($startsAt === null){
-          sendUserError('Failed to parse starts_at parameter');
+          returnUserError('Failed to parse starts_at parameter');
         }
         $ad->setStartsAt($startsAt);
       }
@@ -138,7 +175,7 @@ function getAd(String $adId): object {
       } else {
         $endsAt = date_create($endsAt, new DateTimeZone(TZ));
         if ($endsAt === null){
-          sendUserError('Failed to parse ends_at parameter');
+          returnUserError('Failed to parse ends_at parameter');
         }
         $ad->setEndsAt($endsAt);
       }

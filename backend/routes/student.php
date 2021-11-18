@@ -1,9 +1,59 @@
 <?php
-/** @author Vladimir Martynenko */
+/** 
+ * @author Vladimir Martynenko  
+ * 
+ * Methods related to student table  
+ * 
+ * Requests for '/student' endpoint:  
+ *
+ * GET /ritid/{:ritid} - get student info from database or ldap
+ * using 9 digit {:ritid}.    
+ * 
+ * Returns JSON containing fields:
+ * - Uid - Uid of the student  
+ * - Name - First and last name of the student  
+ * - Ritid - RitId of the student  
+ * - MajorId - student's major from major table  
+ * - Major - name of the student's major  
+ * - Grad - true if graduate major, or false if undergrad  
+ * - AdvisorId - Uid if assigned advisor (default if there is no override per student)  
+ * - AdvisorName - Name of the advisor  
+ * - PictureUrl - Url of the picture of the advisor  
+ * - IsGradAdvisor - True if grad advise, false if undergrad    
+ *
+ * 
+ * GET /uid/{:uid} - get student info from the student table using {:uid}  
+ * 
+ * Returns same info JSON as above  
+ * 
+ * POST /updatemajor - update student's major in the database  
+ * Body parameters:  
+ * - studentId - (requires) Id of the student to update.  
+ * - major - (required) ether major id from the major table or actual name of the major.   
+ * 
+ * Returns student record as JSON as above  
+ * 
+ * POST /updateadvisor - override advisor for the student  
+ * Body parameters:  
+ * - studentId - (required) Uid of the student to update  
+ * - advisor - (required) Uid of the advisor to assign to student  
+ * 
+ * Returns same info JSON as above  
+ *
+ */
+
+  use Propel\Runtime\Exception\PropelException;
 
   const STUDENT_NOT_FOUND = 'Student not found';
 
-  function getByRitid($ritid, $force=false): object{
+  /**
+   * Get students record by RitId  
+   * @param string $ritid - Ritid to search  
+   * @param bool $force - request from ldap and avoid cache
+   * @return object - a PHP object with student record
+   * @throws PropelException
+   */
+  function getByRitid(string $ritid, bool $force=false): object{
     if (strlen($ritid) != 9) {
       returnUserError("Incorrect length of ritid");
     }
@@ -48,7 +98,12 @@
     return(makeStudentJson($student));
   } // getByRitid
 
-  function getByUid($uid): object{
+  /**
+   * Return student record from the student table of the database  
+   * @param string $uid - uid of the student
+   * @return object - a PHP object containing student record
+   */
+  function getByUid(string $uid): object{
     $student = StudentQuery::create()->findOneByUid($uid);
     if (!$student) {
       returnUserError(STUDENT_NOT_FOUND);
@@ -61,6 +116,12 @@
            (strcasecmp($to, substr($name, 0, strlen($to))) >= 0);
   } // inBetween
 
+  /**
+   * Get default advisor for a given student
+   * @param Student $student
+   * @return Employee
+   * @throws PropelException
+   */
   function getAdvisorForStudent(Student $student): Employee{
     $advisors = EmployeeQuery::create()->where('Employee.is_grad_advisor IS NOT NULL')
                              ->filterByIsGradAdvisor($student->getMajor()->getGrad())->find();
@@ -74,6 +135,12 @@
     }
   }
 
+  /**
+   * Convert propel student object to PHP object
+   * @param Student $student
+   * @return object
+   * @throws PropelException
+   */
   function makeStudentJson(Student $student): object{
     $result = (Object)[
       'Uid' => $student->getUid(),
@@ -110,6 +177,11 @@
     return $result;
   } // makeStudentJson
 
+  /**
+   * Dispatch GET request
+   * @param array $pathComponents
+   * @throws PropelException
+   */
   function processGetRoute(array $pathComponents): void{
     $field = array_shift($pathComponents);
     if (!$field) {
@@ -132,7 +204,13 @@
     }
   }
 
-  function updateMajor(Student $studentId, Major $major): void{
+  /**
+   * Update student's major
+   * @param string $studentId
+   * @param string $major
+   * @throws PropelException
+   */
+  function updateMajor(string $studentId, string $major): void{
     if (is_numeric($major)) {
       $majorObj = MajorQuery::create()->findOneById($major);
     } else {
@@ -161,7 +239,13 @@
     returnResponse($result);
   } // updateMajor
 
-  function updateadvisor(Student $studentId, Employee $advisorId){
+  /**
+   * Override the advisor for the student 
+   * @param string $studentId - Uid of the student 
+   * @param string $advisorId - Uid of the advisor
+   * @throws PropelException
+   */
+  function updateadvisor(string $studentId, string $advisorId): void {
     $advisor = EmployeeQuery::create()->findOneByUid($advisorId);
     if ($advisor === null) {
       returnUserError('Advisor not found.');
@@ -185,8 +269,13 @@
     returnResponse($result);
   } // updateadvisor
 
+  /**
+   * Dispatch POST requests
+   * @param $operation
+   * @throws PropelException
+   */
   // Operation names must all be lowercase operation name provided by user is converted to the lower case
-  function processPostRoute($operation,): void{
+  function processPostRoute($operation): void{
     switch ($operation) {
       case 'updatemajor':
         if (!isset($_POST['studentId'])){

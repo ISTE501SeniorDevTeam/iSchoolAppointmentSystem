@@ -1,5 +1,77 @@
 <?php
-/** @author Vladimir Martynenko */
+/** 
+ * @author Vladimir Martynenko  
+ *
+ * Methods related to walk in hours scheduling
+ * 
+ * Requests for '/hour' endpoint:  
+ * 
+ * GET '/' - get all hours records in the table  
+ * 
+ * Returns JSON array with all hour records in the table  
+ * 
+ * GET '/advisor/{:advisorId}' - get all hour records for {:advisorId}  
+ * 
+ * Returns JSON array containing records for requested advisor  
+ * 
+ * GET '/{:hourId}' - get a single hour record by id  
+ * 
+ * Returns JSON hour record with fields:  
+ * - Id - hour record id,  
+ * - AdvisorId - advisorId,  
+ * - Advisor - Advisor name,  
+ * - StartTime - start time of the period,  
+ * - EndTime - end time of the period,
+ * - Recurring - true / false,  
+ * <b>For recurring:</b>  
+ * - StartRecurrence - date after which recurrence begins or null,  
+ * - EndRecurrence - date until which recurrence continues or null,
+ * - DayOfTheWeek - number of the day of the week for the period,  
+ * <b>For single day overrides:</b>  
+ * - Date - a date on which this override takes place.  
+ *
+ * POST '/createsingle/{:advisorId}' - create a single day override  
+ * Body parameters:  
+ * - start_time - start time of the period,  
+ * - end_time - end time of the period,  
+ * - date - date for the override  
+ * 
+ * Returns a JSON with newly created hour record
+ * 
+ * POST '/createrecurring/{:advisorId}' - create a recurring hours record  
+ * Body parameters:
+ * - start_time - start time of the period,
+ * - end_time - end time of the period,
+ * - day_Of_week - day of the week,  
+ * - start_recurrence - (optional) start recurrence date,  
+ * - end_recurrence - (optional) end recurrence date  
+ * 
+ * Returns JSON with newly created record
+ * 
+ * POST '/updatesingle/{:hourId}' - update a single override record  
+ * Body parameters:
+ * - advisor_id - (optional) advisorId,  
+ * - start_time - (optional) start time,  
+ * - end_time - (optional) end time,  
+ * - date - (optional) date  
+ * 
+ * Returns JSON with new event  
+ * 
+ * POST '/updaterecurring/{:hourId}' - Update recurring hour record  
+ * Body parameters:
+ * - advisor_id - (optional) advisorId,
+ * - start_time - (optional) start time,
+ * - end_time - (optional) end time,
+ * - day_Of_week - (optional) day of the week,
+ * - start_recurrence - (optional) start recurrence date,
+ * - end_recurrence - (optional) end recurrence date  
+ * 
+ * Returns updated JSON record
+ * 
+ * POST '/delete/{:hourId}' - delete an hour record  
+ * 
+ * Returns JSON with number of records deleted
+ */
 
 use Propel\Runtime\Exception\PropelException;
 
@@ -179,19 +251,135 @@ use Propel\Runtime\Exception\PropelException;
     return makeHour($hour);
   } // createRecurring()
 
-  function createSingle(){
-
+/**
+ * Create a record for a single day override 
+ * @param string $advisorId id of an advisor
+ * @return object PHP object containing newly created record
+ * @throws PropelException
+ */
+  function createSingle(string $advisorId): object {
+    $advisor = EmployeeQuery::create()->findOneByUid($advisorId);
+    if($advisor === null){
+      returnUserError('Advisor not found');
+    }
+    $hour = new Hour();
+    $hour->setEmployee($advisor);
+    $startTime = $_POST['start_time'] ?? null;
+    $endTime = $_POST['end_time'] ?? null;
+    if($startTime === null){
+      returnUserError('Missing start time');
+    }
+    $timezone = new DateTimeZone(TIMEZONE);
+    $startTime = date_create($startTime, $timezone);
+    $hour->setStartTime($startTime);
+    if($endTime === null){
+      returnUserError('Missing end time');
+    }
+    $endTime = date_create($endTime, $timezone);
+    $hour->setEndTime($endTime);
+    $date = $_POST['date'] ?? null;
+    if($date === null){
+      returnUserError('Missing the date');
+    }
+    $date = date_create($date, $timezone);
+    $hour->setDate($date);
+    $hour->save();
+    return makeHour($hour);
   } // createSingle()
 
-  function updateRecurring($hourId){
-
+/**
+ * Update recurring hour
+ * @param int $hourId id of an hour record to update
+ * @return object PHP object containing updated hour record 
+ * @throws PropelException
+ */
+  function updateRecurring(int $hourId): object {
+    $hour = HourQuery::create()->findOneById($hourId);
+    if($hour === null){
+      returnUserError('Hour id not found');
+    }
+    $advisorId = $_POST['advisor_id'] ?? null;
+    if($advisorId !== null){
+      $advisor = EmployeeQuery::create()->findOneByUid($advisorId);
+      if($advisor === null){
+        returnUserError('Advisor not found');
+      }
+      $hour->setEmployee($advisor);
+    }
+    $timezone = new DateTimeZone(TIMEZONE);
+    $startTime = $_POST['start_time'] ?? null;
+    if($startTime !== null){
+      $startTime = date_create($startTime, $timezone);
+      $hour->setStartTime($startTime);
+    }
+    $endTime = $_POST['end_time'] ?? null;
+    if($endTime !== null){
+      $endTime = date_create($endTime, $timezone);
+      $hour->setEndTime($endTime);
+    }
+    $dayOfTheWeek = $_POST['day_of_week'] ?? null;
+    if($dayOfTheWeek !== null){
+      $hour->setDayOfWeek($dayOfTheWeek);
+    }
+    $starrRecurrence = $_POST['start_recurrence'] ?? null;
+    if($starrRecurrence !== null){
+      $starrRecurrence = date_create($starrRecurrence, $timezone);
+      $hour->setStartRecurrence($starrRecurrence);
+    }
+    $endRecurrence = $_POST['end_recurrence'] ?? null;
+    if ($endRecurrence !== null){
+      $endRecurrence = date_create($endRecurrence, $timezone);
+      $hour->setEndRecurrence($endRecurrence);
+    }
+    $hour->save();
+    return makeHour($hour);
   } // updateRecurring()
 
-  function updateSingle($hourId){
-
+/** 
+ * Update a single day hour record
+ * @param int $hourId a hour id
+ * @return object PHP object containing updated record 
+ * @throws PropelException
+ */
+  function updateSingle(int $hourId): object {
+    $hour = HourQuery::create()->findOneById($hourId);
+    if($hour === null){
+      returnUserError('Hour id not found');
+    }
+    $advisorId = $_POST['advisor_id'] ?? null;
+    if($advisorId !== null){
+      $advisor = EmployeeQuery::create()->findOneByUid($advisorId);
+      if($advisor === null){
+        returnUserError('Advisor not found');
+      }
+      $hour->setEmployee($advisor);
+    }
+    $timezone = new DateTimeZone(TIMEZONE);
+    $startTime = $_POST['start_time'] ?? null;
+    if($startTime !== null){
+      $startTime = date_create($startTime, $timezone);
+      $hour->setStartTime($startTime);
+    }
+    $endTime = $_POST['end_time'] ?? null;
+    if($endTime !== null){
+      $endTime = date_create($endTime, $timezone);
+      $hour->setEndTime($endTime);
+    }
+    $date = $_POST['date'] ?? null;
+    if ($date !== null){
+      $date = date_create($date, $timezone);
+      $hour->setDate($date);
+    }
+    $hour->save();
+    return makeHour($hour);
   } // updateSingle()
 
-  function delete($hourId): object {
+/**
+ * Delete a record for hour
+ * @param string $hourId id of hour record to delete
+ * @return object PHP object containing number of rows deleted
+ */
+  function deleteHour(string $hourId): object {
     $hour = HourQuery::create()->findOneById($hourId);
     if($hour === null){
       return (Object)['Delete' => 0];
@@ -224,16 +412,40 @@ use Propel\Runtime\Exception\PropelException;
     returnResponse(getHour($prop));
   }
 
-  function processPostRoute($operation, $pathComponents, $requestParameters){
+/**
+ * Dispatch POST requests to appropriate functions
+ * @param string $operation name of operation requested
+ * @param array $pathComponents URL path elements
+ * @throws PropelException
+ */
+  function processPostRoute(string $operation, array $pathComponents): void {
+    $param = array_shift($pathComponents);
     switch ($operation) {
-      case "create":
-        returnServerError("$operation NOT IMPLEMENTED");      
+      case "createsingle":
+        if ($param === null){
+          returnUserError('Missing hour advisor id');
+        }
+        returnResponse(createSingle($param));      
         break;
-      case "update":
-        returnServerError("$operation NOT IMPLEMENTED");
+      case 'createrecurring':
+        if ($param === null){
+          returnUserError('Missing hour advisor id');
+        }
+        returnResponse(createRecurring($param));
+        break;
+    }
+    if ($param === null){
+      returnUserError('Missing hour id');
+    }
+    switch ($operation) {
+      case "updatesingle":
+        returnResponse(updateSingle($param));
+        break;
+      case "updaterecurring":
+        returnResponse(updateRecurring($param));
         break;
       case "delete":
-        returnServerError("$operation NOT IMPLEMENTED");
+        returnResponse(deleteHour($param));
         break;
       default:
         returnUserError("$operation is not a supported operation for queue endpoint.");

@@ -1,7 +1,33 @@
 <?php
-/** @author Vladimir Martynenko */
+/** 
+ * @author Vladimir Martynenko
+ *
+ * Methods related to advisors
+ * 
+ * Requests for '/advisor' endpoint:
+ * 
+ * GET '/' - Return all advisors in the system as JSON array of advisors.
+ * each advisor has the following fields:
+ * - AdvisorId - advisorId,  
+ * - Name - advisor name,  
+ * - IsGrad - true for graduate advisor and false for undergrad,  
+ * - PictureUrl - Url of the advisor picture,  
+ * - FirstLetter - first letter(s) of last names of students advisor serves,  
+ * - LastLetter - last letter(s) of last names of students advisor serves,  
+ * - IsCurrent - true if advisor is scheduled to accept walkins now 
+ * 
+ * GET '/current' - Returns all advisors who are scheduled to accept students now  
+ * Returns a JSON array of advisors in the format as above.  
+ *
+ * GET '/{:advisorId}' - Returns info for a single advisor  
+ * Returns a JSON in the form same as above.  
+ * 
+ * POST - this endpoint does not have any POST routes.
+ */
 
-/**
+  use Propel\Runtime\Exception\PropelException;
+
+  /**
  * Check if an advisor with given id is currently scheduled for walkins
  * @param string $advisorId uid of an advisor to check
  * @return bool returns true if advisor is scheduled to accept walkins
@@ -98,11 +124,11 @@
     return $result;
   } // getCurrentAdvisors
 
-/** Dispatch GET request to appropriate functions 
- * @param array $pathComponents array containing url path components 
- * @param array $requestParameters array containing request parameters
- */
-  function processGetRoute(array $pathComponents, array $requestParameters): void {
+  /** Dispatch GET request to appropriate functions
+   * @param array $pathComponents array containing url path components
+   * @throws PropelException
+   */
+  function processGetRoute(array $pathComponents): void {
     $param = array_shift($pathComponents);
     if (!$param) {
       returnResponse(getAllAdvisors());
@@ -116,9 +142,7 @@
 /**
  * Notifies client to use user endpoint to modify advisors
  * @param string $operation name of operation requested
- * @param array $pathComponents array containing url path components
- * @param array $requestParameters array containing request parameters
  */
-  function processPostRoute(string $operation, array $pathComponents, array $requestParameters): void {
+  function processPostRoute(string $operation): void {
     returnUserError("$operation is not a supported operation for advisor endpoint (use user endpoint) .");
   }
